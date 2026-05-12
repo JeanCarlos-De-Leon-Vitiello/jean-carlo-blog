@@ -84,12 +84,14 @@ header nav{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         gap: 5px;
         cursor: pointer;
         width: 70px;
         height: 70px;
         border: none;
         background: none;
+        z-index: 2;
 
         span {
             display: block;
@@ -170,6 +172,41 @@ footer {
 }
 
 @media (max-width: 700px) {
+    header nav ul {
+        display: none;
+        background-color: var(--secondary-color);
+    }
+
+        header.open { 
+        background-color: var(--secondary-color);
+        
+        nav > a {
+            color: var(--primairy-color);
+            z-index: 2;
+        }
+
+        .hamburger span {
+            background-color: var(--primairy-color);
+        }
+
+        ul {
+            display: block;
+            color: var(--primairy-color);
+            position: absolute;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--secondary-color);
+            padding: 1rem;
+
+            left: 0;
+            right: 0;
+            top: 10vh;
+        }
+    }
+
     footer {
         grid-template-columns: 1fr;
 

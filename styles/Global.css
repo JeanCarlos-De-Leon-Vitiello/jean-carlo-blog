@@ -31,14 +31,98 @@ body {
 
 }
 
+
+
+
+
+
+
+
+/* Header code */
 header {
+    height: 10vh;
+    width: 100%;
+    align-content: center;
     padding: var(--section-spacing);
 }
+
+header nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondary-color);
+
+    >a {
+        display: flex;
+        text-align: center;
+        font-family: var(--font-primary);
+        font-size: 2rem;
+        font-weight: 1000;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+
+        li {
+            list-style: none;
+            font-family: var(--font-primary);
+            font-size: 1.2rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        width: 70px;
+        height: 70px;
+        border: none;
+        background: none;
+
+        span {
+            display: block;
+            width: 40px;
+            height: 5px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
 
 main {
     padding: var(--section-spacing);
 }
 
+
+
+
+
+
+
+
+
+
+/* footer code */
 footer {
     display: grid;
     grid-template-columns: 1fr auto;

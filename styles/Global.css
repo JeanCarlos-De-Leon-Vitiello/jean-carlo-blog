@@ -92,6 +92,7 @@ header nav{
         border: none;
         background: none;
         z-index: 2;
+        display: none;
 
         span {
             display: block;
@@ -171,15 +172,44 @@ footer {
     }
 }
 
+
+
+
+
 @media (max-width: 700px) {
-    header nav ul {
-        display: none;
-        background-color: var(--secondary-color);
+    header nav .hamburger {
+        display: flex;
     }
+
+    header nav ul {
+        background-color: var(--secondary-color);
+        color: var(--primairy-color);
+        position: absolute;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--secondary-color);
+        padding: 1rem;
+        left: 0;
+        right: 0;
+        top: 10vh;
+
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-1rem);
+        transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.35s ease;
+    }
+
+        .hamburger span {
+            transition: transform 0.35s ease, background-color 0.25s ease;
+        }
 
         header.open { 
         background-color: var(--secondary-color);
-        
+
         nav > a {
             color: var(--primairy-color);
             z-index: 2;
@@ -189,21 +219,34 @@ footer {
             background-color: var(--primairy-color);
         }
 
-        ul {
-            display: block;
-            color: var(--primairy-color);
-            position: absolute;
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--secondary-color);
-            padding: 1rem;
+        .hamburger {
+            position: relative;
 
-            left: 0;
-            right: 0;
-            top: 10vh;
+            span:nth-child(1) {
+                position: absolute;
+                transform: rotate(45deg);
+                transform-origin: center;
+            }
+
+            span:nth-child(2) {
+                position: absolute;
+                transform: rotate(-45deg);
+                transform-origin: center;
+            }
+
+            span:nth-child(3) {
+                position: absolute;
+                transform: rotate(-45deg);
+                transform-origin: center;
+            }
+
+        }
+
+        ul {
+            max-height: 20em;
+            opacity: 1;
+            transform: translateY(0);
+            padding: 1rem;
         }
     }
 

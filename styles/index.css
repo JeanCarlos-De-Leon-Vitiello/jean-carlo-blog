@@ -1,0 +1,136 @@
+header {
+    height: 10vh;
+    width: 100%;
+    align-content: center;
+}
+
+header nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondary-color);
+
+    >a {
+        display: flex;
+        text-align: center;
+        font-family: var(--font-primary);
+        font-size: 2rem;
+        font-weight: 1000;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+
+        li {
+            list-style: none;
+            font-family: var(--font-primary);
+            font-size: 1.2rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        width: 70px;
+        height: 70px;
+        border: none;
+        background: none;
+
+        span {
+            display: block;
+            width: 40px;
+            height: 5px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+    }
+}
+
+main {
+    section:nth-of-type(1) {
+        height: 90vh;
+        background-color: var(--primairy-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-family: var(--font-primary);
+            font-size: 8rem;
+            color: var(--secondary-color);
+            text-align: center;
+            line-height: 110px;
+        }
+    }
+
+    section:nth-of-type(2) {
+        color: var(--secondary-color);
+        padding: 5rem 0;
+
+        >div:nth-of-type(1) {
+            text-align: center;
+        }
+
+        div:nth-of-type(2) {
+            display: flex;
+            justify-content: space-between;
+
+
+            article {
+            width: 25em;
+            padding: 2em;
+
+            h3 {
+                font-family: var(--font-primary);
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        }
+    }
+
+    .recent-projects {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        color: var(--secondary-color);
+        padding: 5rem 0;
+
+        h2 {
+            width: 100%;
+            font-family: var(--font-primary);
+            font-size: var(--font-size-h2);
+        }
+
+        >div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1 1 18rem;
+            min-height: 18rem;
+            padding: 2rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 0.75rem;
+        }
+
+        h3 {
+            font-family: var(--font-primary);
+            font-size: var(--font-size-h3);
+        }
+    }
+}

@@ -2,7 +2,19 @@
 **Font: BebasNeue**
 https://fonts.google.com/specimen/Bebas+Neue?preview.script=Latn
 
-persoonlijke leerdoelen meesterproef:
+# sprint 0
+
+
+# Hackathon
+
+
+# uitkomsten van de vakken
+
+
+# reflectie hoe het tot nu toe gaat
+
+
+# persoonlijke leerdoelen meesterproef:
 leerdoel 1: Werken met GitHub branches en code conventions
 Tijdens de meesterproef wil ik beter leren werken met GitHub branches en code conventions, zodat ik gestructureerder kan samenwerken binnen een team. Ik ga voor elke feature of taak een aparte branch gebruiken en werken met duidelijke commit messages en vaste code-afspraken binnen het project. Bij de hackaton ging dat helaas niet waardoor mijn groep en ik last minute in de problemen kwamen.
 
@@ -12,7 +24,7 @@ Tijdens de meesterproef wil ik mijn JavaScript skills verder gaan verbeteren doo
 leerdoel 3: Beter plannen en niet uitstellen
 Tijdens de meesterproef wil ik beter worden in het plannen van mijn werkzaamheden en het inschatten van hoeveel tijd een functie kost om te maken. Ik wil taken minder uitstellen en op volgorde aanpakken. Ik ben snel geneigd om verschillende dingen te gelijk te doen waardoor ik de controlle verlies. 
 
-
+# weekly nerds
 Weekly Nerd: Peter-Paul Koch
 Wat hij vertelde
 Tijdens deze Weekly Nerd vertelde Peter-Paul Koch over de geschiedenis van browsers en hoe browsers websites renderen. Hij legde uit welke onderdelen een browser heeft, zoals HTML, CSS, de DOM en de rendering engine.

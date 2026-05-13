@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--secondary-color);
 }
 
 body {
@@ -111,10 +112,58 @@ header nav{
 
 
 
+/* hero section */
+.hero-section {
+        height: 90vh;
+        background-color: var(--primairy-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-main {
-    padding: var(--section-spacing);
-}
+        h1 {
+            font-family: var(--font-primary);
+            font-size: 8rem;
+            color: var(--secondary-color);
+            text-align: center;
+            line-height: 110px;
+        }
+    }
+
+
+
+    /* cards */
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        color: var(--secondary-color);
+        padding: 5rem 0;
+        margin: var(--section-spacing);
+
+        h2 {
+            width: 100%;
+            font-family: var(--font-primary);
+            font-size: var(--font-size-h2);
+        }
+
+        >div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: calc((100% - 4rem) / 3);
+            min-height: 18rem;
+            padding: 2rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 0.75rem;
+        }
+
+        h3 {
+            font-family: var(--font-primary);
+            font-size: var(--font-size-h3);
+        }
+    }
+
 
 
 

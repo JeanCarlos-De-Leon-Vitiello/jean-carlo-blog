@@ -60,7 +60,7 @@ header nav{
 }
 
 main {
-    section:nth-of-type(1) {
+    .hero-section {
         height: 90vh;
         background-color: var(--primairy-color);
         display: flex;
@@ -104,33 +104,4 @@ main {
         }
     }
 
-    .recent-projects {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        color: var(--secondary-color);
-        padding: 5rem 0;
-
-        h2 {
-            width: 100%;
-            font-family: var(--font-primary);
-            font-size: var(--font-size-h2);
-        }
-
-        >div {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex: 1 1 18rem;
-            min-height: 18rem;
-            padding: 2rem;
-            border: 1px solid var(--secondary-color);
-            border-radius: 0.75rem;
-        }
-
-        h3 {
-            font-family: var(--font-primary);
-            font-size: var(--font-size-h3);
-        }
-    }
 }

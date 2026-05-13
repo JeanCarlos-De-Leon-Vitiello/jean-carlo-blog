@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Killian Valkhof - Stop using JS</title>
+    <link rel="stylesheet" href="../styles/Global.css">
+    <script type="module" src="../Scripts/hamburger.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Jean-Carlo's<br>Web design & Dev</a>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../blogs.html">Weekly Nerd</a></li>
+                <li><a href="../aboutme.html">About Me</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <p>4 februari 2026</p>
+            <h1>Killian Valkhof <br> Stop using JS.. In the future</h1>
+        </section>
+
+        <span class="border"></span>
+
+        <article>
+            <div>
+                <h2>Wat hij vertelde</h2>
+                <p>Tijdens de Weekly Nerd vertelde Killian Valkhof dat developers nog te veel JavaScript gebruiken terwijl HTML en CSS tegenwoordig veel mogelijkheden hebben. Zijn belangrijkste boodschap was:</p>
+                <div>
+                    <p class="quote">kies altijd de minst krachtige oplossing die nodig is</p>
+                </div>
+                <p>
+                    Browsers kunnen veel sneller omgaan met HTML en CSS dan met JavaScript. Zodra je JavaScript gebruikt, moet de browser extra werk doen om alles uit te voeren en te renderen.
+                    Hij vertelde ook dat oude websites vaak nog steeds blijven werken in moderne browsers. Dat komt doordat browsers achterwaarts compatibel zijn gemaakt. Oude code blijft dus ondersteund zodat websites niet ineens kapot gaan wanneer een browser update krijgt.
+                    Als laatst liet hij voorbeelden zien van functionaliteiten die vroeger alleen met JavaScript mogelijk waren, maar nu gewoon met CSS en HTML gemaakt kunnen worden.
+                </p>
+            </div>
+
+            <div>
+                <h2>Belangrijke inzichten</h2>
+                <ul>
+                    <li>
+                        <h3>Custom switch zonder JavaScript</h3>
+                        <p>
+                            Met <span>appearance: none</span> kan je de standaard styling van een input verwijderen. Hierdoor verandert een checkbox eigenlijk in een leeg element dat je volledig zelf kunt stylen.
+                            Door vervolgens pseudo-elementen zoals <span>::before</span> te gebruiken kan je bijvoorbeeld een bolletje maken binnen de switch. Met <span>:checked</span> kan je de staat aanpassen zodra iemand erop klikt. Hierdoor kan je een interactieve switch maken zonder één regel JavaScript te gebruiken.
+                            Killian vertelde hierbij ook dat veel developers nog denken dat forms moeilijk te stijlen zijn. Volgens hem was dat vroeger misschien waar, maar tegenwoordig bieden browsers veel betere mogelijkheden om formulier-elementen aan te passen.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Smooth scrolling zonder JavaScript</h3>
+                        <p>
+                            Voor smooth scrolling gebruikte Killian alleen CSS:
+                            <code>html {scroll-behavior: smooth;}</code>
+                            Hierdoor scrollt de browser automatisch met een animatie naar een sectie van de pagina. Hiervoor hoef je dus geen JavaScript meer te gebruiken.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Reduce motion</h3>
+                        <p>Als iemand “reduce motion” heeft aangezet in zijn browser of besturingssysteem, worden animaties uitgeschakeld. Dit is belangrijk voor toegankelijkheid en gebruiksvriendelijkheid. <code>@media (prefers-reduced-motion: no-preference) {html {scroll-behavior: smooth;}}</code></p>
+                    </li>
+
+                    <li>
+                        <h3>Scroll-margin</h3>
+                        <p>Met scroll-margin kan je voorkomen dat content onder een sticky header verdwijnt wanneer je naar een ankerlink scrollt.</p>
+                    </li>
+
+                    <li>
+                        <h3>Accordions met details en summary</h3>
+                        <p>Killian liet zien dat je tegenwoordig accordions kunt maken met alleen HTML, zonder JavaScript te gebruiken. Met de elementen <span>details</span> en <span>summary</span> kan je eenvoudig een uitklapbaar onderdeel maken waarbij alleen de titel zichtbaar is totdat iemand erop klikt. Wanneer het onderdeel geopend wordt, voegt de browser automatisch een open status toe. Daarnaast kan je het standaard pijltje aanpassen met CSS. Ook liet hij zien dat je met het <span>name</span> attribuut meerdere accordions aan elkaar kunt koppelen, zodat er maar één tegelijk open kan staan. Open je een nieuwe accordion, dan sluit de vorige automatisch.</p>
+                    </li>
+
+                    <li>
+                        <h3>Dialog</h3>
+                        <p>Tot slot vertelde hij over het dialog element. Dit is eigenlijk een ingebouwde popup van HTML. Het element is standaard verborgen totdat je het opent. Met <span>:backdrop</span> kan je de achtergrond achter de popup stijlen, bijvoorbeeld donker maken. Ook <span>@starting-style</span> kan gebruikt worden om dialogs te animeren.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Wat neem ik mee</h2>
+                <p>
+                    Na deze Weekly Nerd wil ik bewuster omgaan met het gebruik van JavaScript. Ik wil eerst kijken of iets met HTML en CSS opgelost kan worden voordat ik direct JavaScript toevoeg.
+                    Daarnaast wil ik meer aandacht besteden aan accessibility, bijvoorbeeld door betere focus states toe te voegen en rekening te houden met gebruikers die minder animaties willen zien.
+                </p>
+            </div>
+
+            
+        </article>
+
+    </main>
+</body>
+</html>

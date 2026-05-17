@@ -19,17 +19,26 @@ body {
     --primairy-color: #000;
     --secondary-color: #fff;
     --text-color: ;
+    --accent-color: #d88c3a;
+    --accent-soft-color: #f2dcc3;
+    --card-surface-color: #1f1a14;
 
     /* Fonts */
     --font-primary: "BebasNeue", sans-serif;
     --secondairy-font: "Arial", sans-serif;
+
+    /* Font sizes */
+    --font-size-h1: clamp(4rem, 12vw, 8rem);
+    --font-size-h2: clamp(2.5rem, 6vw, 5rem);
+    --font-size-h3: clamp(1.5rem, 3vw, 2rem);
 
     /* Gradients */
 
     
     /* Spacing */
     --section-spacing: 0 5vw;
-
+    --content-max-with: 72rem;
+    --content-padding: 5rem clamp(1rem, 5vw, 5rem);
 }
 
 
@@ -120,10 +129,11 @@ header nav{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border-bottom: solid 1px var(--secondary-color);
 
         h1 {
             font-family: var(--font-primary);
-            font-size: 8rem;
+            font-size: var(--font-size-h1);
             color: var(--secondary-color);
             text-align: center;
             line-height: 110px;
@@ -181,6 +191,7 @@ footer {
     gap: 3rem;
     padding: 4rem 5vw 2rem;
     color: var(--secondary-color);
+    border-top: solid 1px var(--secondary-color);
 
     div {
         max-width: 32rem;
@@ -311,7 +322,7 @@ footer {
 /* classes */
 .border {
     display: block;
-    width: 100%;
+    width: 90%;
     height: 1px;
     background-color: var(--secondary-color);
     justify-self: center;

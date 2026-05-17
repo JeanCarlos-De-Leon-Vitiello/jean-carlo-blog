@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Nerds</title>
+    <link rel="stylesheet" href="styles/Global.css">
+    <link rel="stylesheet" href="styles/weeklynerd.css">
+    <script type="module" src="Scripts/hamburger.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/index.html">Jean-Carlo's<br>Web design & Dev</a>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/sprint0.html">Sprint 0</a></li>
+                <li><a href="/hackathon.html">Hackathon</a></li>
+                <li><a href="/weeklynerd.html">Weekly Nerd</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+                <li><a href="/meesterproef.html">Meesterproef</a></li>
+            </ul>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Weekly<br>Nerd</h1>
+            <p></p>
+            <p></p>
+        </section>
+
+        <article class="weekly-article">
+
+            <h2>Killian Valkhof</h2>
+            <p>Stop using JS.. In the future</p>
+
+            <div>
+                <h2>Wat hij vertelde</h2>
+                <p>Tijdens de Weekly Nerd vertelde Killian Valkhof dat developers nog te veel JavaScript gebruiken terwijl HTML en CSS tegenwoordig veel mogelijkheden hebben. Zijn belangrijkste boodschap was:</p>
+                <div>
+                    <p class="quote">kies altijd de minst krachtige oplossing die nodig is</p>
+                </div>
+                <p>
+                    Browsers kunnen veel sneller omgaan met HTML en CSS dan met JavaScript. Zodra je JavaScript gebruikt, moet de browser extra werk doen om alles uit te voeren en te renderen.
+                    Hij vertelde ook dat oude websites vaak nog steeds blijven werken in moderne browsers. Dat komt doordat browsers achterwaarts compatibel zijn gemaakt. Oude code blijft dus ondersteund zodat websites niet ineens kapot gaan wanneer een browser update krijgt.
+                    Als laatst liet hij voorbeelden zien van functionaliteiten die vroeger alleen met JavaScript mogelijk waren, maar nu gewoon met CSS en HTML gemaakt kunnen worden.
+                </p>
+            </div>
+
+            <div>
+                <h2>Belangrijke inzichten</h2>
+                <ul class="insight-list">
+                    <li>
+                        <h3>Custom switch zonder JavaScript</h3>
+                        <p>
+                            Met <code class="code">appearance: none</code> kan je de standaard styling van een input verwijderen. Hierdoor verandert een checkbox eigenlijk in een leeg element dat je volledig zelf kunt stylen.
+                            Door vervolgens pseudo-elementen zoals <code class="code">::before</code> te gebruiken kan je bijvoorbeeld een bolletje maken binnen de switch. Met <code class="code">:checked</code> kan je de staat aanpassen zodra iemand erop klikt. Hierdoor kan je een interactieve switch maken zonder één regel JavaScript te gebruiken.
+                            Killian vertelde hierbij ook dat veel developers nog denken dat forms moeilijk te stijlen zijn. Volgens hem was dat vroeger misschien waar, maar tegenwoordig bieden browsers veel betere mogelijkheden om formulier-elementen aan te passen.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Smooth scrolling zonder JavaScript</h3>
+                        <p>
+                            Voor smooth scrolling gebruikte Killian alleen CSS:
+                            <code class="code">html {scroll-behavior: smooth;}</code>
+                            Hierdoor scrollt de browser automatisch met een animatie naar een sectie van de pagina. Hiervoor hoef je dus geen JavaScript meer te gebruiken.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Reduce motion</h3>
+                        <p>Als iemand “reduce motion” heeft aangezet in zijn browser of besturingssysteem, worden animaties uitgeschakeld. Dit is belangrijk voor toegankelijkheid en gebruiksvriendelijkheid. <code class="code">@media (prefers-reduced-motion: no-preference) {html {scroll-behavior: smooth;}}</code></p>
+                    </li>
+
+                    <li>
+                        <h3>Scroll-margin</h3>
+                        <p>Met scroll-margin kan je voorkomen dat content onder een sticky header verdwijnt wanneer je naar een ankerlink scrollt.</p>
+                    </li>
+
+                    <li>
+                        <h3>Accordions met details en summary</h3>
+                        <p>Killian liet zien dat je tegenwoordig accordions kunt maken met alleen HTML, zonder JavaScript te gebruiken. Met de elementen <code class="code">details</code> en <code class="code">summary</code> kan je eenvoudig een uitklapbaar onderdeel maken waarbij alleen de titel zichtbaar is totdat iemand erop klikt. Wanneer het onderdeel geopend wordt, voegt de browser automatisch een open status toe. Daarnaast kan je het standaard pijltje aanpassen met CSS. Ook liet hij zien dat je met het <code class="code">name</code> attribuut meerdere accordions aan elkaar kunt koppelen, zodat er maar één tegelijk open kan staan. Open je een nieuwe accordion, dan sluit de vorige automatisch.</p>
+                    </li>
+
+                    <li>
+                        <h3>Dialog</h3>
+                        <p>Tot slot vertelde hij over het dialog element. Dit is eigenlijk een ingebouwde popup van HTML. Het element is standaard verborgen totdat je het opent. Met <code class="code">:backdrop</code> kan je de achtergrond achter de popup stijlen, bijvoorbeeld donker maken. Ook <code class="code">@starting-style</code> kan gebruikt worden om dialogs te animeren.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Wat neem ik mee</h2>
+                <p>
+                    Na deze Weekly Nerd wil ik bewuster omgaan met het gebruik van JavaScript. Ik wil eerst kijken of iets met HTML en CSS opgelost kan worden voordat ik direct JavaScript toevoeg.
+                    Daarnaast wil ik meer aandacht besteden aan accessibility, bijvoorbeeld door betere focus states toe te voegen en rekening te houden met gebruikers die minder animaties willen zien.
+                </p>
+            </div>
+
+            
+        </article>
+
+        <span class="border"></span>
+
+        <article class="weekly-article">
+
+            <h2>Peter Paul Koch</h2>
+            <p>Browser history</p>
+
+            <div>
+                <h2>Wat hij vertelde</h2>
+                <p>
+                    Tijdens deze Weekly Nerd vertelde Peter-Paul Koch over de geschiedenis van browsers en hoe browsers websites renderen. Hij legde uit welke onderdelen een browser heeft, zoals HTML, CSS, de DOM en de rendering engine.
+                    Ook vertelde hij over render blocking. CSS en JavaScript kunnen ervoor zorgen dat een pagina later geladen wordt. Daarom zijn technieken zoals async en defer belangrijk voor performance.
+                    Daarnaast ging hij in op backward compatibility. Browsers blijven oude code ondersteunen zodat oude websites nog steeds blijven werken.
+                </p>
+            </div>
+
+            <div>
+                <h2>Belangrijke inzichten</h2>
+                <ul class="insight-list">
+                    <li>
+                        <h3>Rendering engine</h3>
+                        <p>Verantwoordelijk voor het verwerken van HTML en CSS en het renderen van de pagina. Browsers zoals Chrome gebruiken hiervoor Blink.</p>
+                    </li>
+
+                    <li>
+                        <h3>AOM (Accessibility Object Model)</h3>
+                        <p>
+                            Naast de DOM bouwt de browser ook een AOM op. Deze wordt gebruikt door screenreaders en andere accessibility tools.
+                            Core vs DOM
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>JavaScript Core</h3>
+                        <p>JavaScript Core gaat over de programmeertaal zelf, zoals variabelen en functies. De DOM zorgt ervoor dat JavaScript HTML-elementen kan aanpassen.</p>
+                    </li>
+
+                    <li>
+                        <h3>Render Blocking</h3>
+                        <p>
+                            CSS blokkeert standaard rendering. JavaScript ook, tenzij je <span class="code">
+                            async</span> of <span class="code">defer</span> gebruikt.
+                            defer: uitvoeren nadat de DOM geladen is.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Backward compatibility</h3>
+                        <p>
+                            Browsers blijven oude technieken ondersteunen zodat oude websites nog steeds blijven werken.
+                            Zoals het gebruiken van <code class="code">body bgcolor=“abdaca”>/body></code>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Wat neem ik mee</h2>
+                <p>Ik neem vooral mee dat browsers veel complexer zijn dan ik eerst dacht. Er gebeurt veel meer achter de schermen voordat een website zichtbaar wordt.</p>
+            </div>
+            
+
+        </article>
+
+        <span class="border"></span>
+
+        <article class="weekly-article">
+
+            <h2>Nils Binder</h2>
+            <p>9elements</p>
+
+            <div>
+                <h2>Wat hij vertelde</h2>
+                <p>
+                    Tijdens deze Weekly Nerd vertelde Nils Binder over zijn bedrijf 9elements en liet hij verschillende projecten zien. Hij vertelde hoe design en development binnen hun team samenwerken om creatieve websites te bouwen.
+                    Wat ik interessant vond was dat een Figma design vaak nog erg verandert tijdens development. Het eindproduct ziet er dus niet altijd precies hetzelfde uit als het eerste ontwerp.
+                    Ook vertelde hij dat het web tegenwoordig meer mogelijkheden heeft dan Figma. Vroeger konden designs uit Photoshop vaak niet volledig op het web gemaakt worden, maar nu is dat juist andersom.
+                    Daarnaast liet hij moderne CSS technieken zien zoals subgrid, view transitions en steps animations.
+                </p>
+            </div>
+
+            <div>
+                <h2>Belangrijke inzichten</h2>
+                <ul class="insight-list">
+                    <li>
+                        <h3>Figma lijkt op CSS</h3>
+                        <p>
+                            Figma lijkt op CSS, omdat het principes gebruikt die overeenkomen met hoe je websites bouwt. Zoals auto layout die op een manier werkt die lijkt op flexbox in CSS. Met het web kan je tegenwoordig meer dan in design tools zoals Figma. Niet alles wat met CSS mogelijk is, kan ook direct in Figma worden gemaakt. Vroeger was dat andersom, toen konden designs vaak niet volledig op het web worden gerealiseerd.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Steps animations</h3>
+                        <p>
+                            Met steps() kan je een animatie maken met meerdere afbeeldingen zodat het lijkt op een flipbook of 3D animatie/video.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Subgrid</h3>
+                        <p>
+                            Met subgrid kunnen child elementen dezelfde grid structuur gebruiken als de parent grid.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>View Transitions</h3>
+                        <p>
+                            Met view transitions kan de browser automatisch animaties maken tussen pagina’s zonder JavaScript frameworks.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>::first-line</h3>
+                        <p>Met ::first-line kan je alleen de eerste regel van een tekst apart stylen.</p>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div>
+                <h2>Wat neem ik mee</h2>
+                <p>
+                    Ik neem vooral mee dat webdesign veel verder is dan alleen Figma namaken. CSS biedt tegenwoordig veel creatieve mogelijkheden die ik nog niet kende.
+                    Daarnaast wil ik meer experimenteren met moderne CSS features zoals subgrid en view transitions om creatievere websites te bouwen.
+                </p>
+            </div>
+
+        </article>
+
+        <span class="border"></span>
+
+        <article class="weekly-article">
+
+            <h2>Robert Broersma</h2>
+            <p>FF formulieren maken</p>
+
+            <div>
+                <h2>Wat hij vertelde</h2>
+                <p>
+                    Tijdens deze Weekly Nerd vertelde Robert Broersma over het ontwerpen van goede formulieren. Hij legde uit dat formulieren niet alleen bestaan uit invoervelden, maar dat gebruiksvriendelijkheid en toegankelijkheid een grote rol spelen.
+                    Hij vertelde bijvoorbeeld dat je alleen informatie moet vragen die echt nodig is. Ook is het belangrijk om autocomplete te gebruiken, duidelijke foutmeldingen te tonen en invoervelden logisch te ordenen.
+                    Daarnaast ging hij in op accessibility, zoals voldoende kleurcontrast, duidelijke labels en grote klikvlakken voor gebruikers.
+                </p>
+            </div>
+
+            <div>
+                <h2>Belangrijke inzichten</h2>
+                <ul class="insight-list">
+                    <li>
+                        <h3>Vraag alleen wat nodig is</h3>
+                        <p>
+                            Vraag alleen gegevens die echt noodzakelijk zijn. Volgens de wet mag je geen onnodige informatie verzamelen. Geef daarnaast duidelijk aan welke velden optioneel zijn, in plaats van alle verplichte velden te markeren.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Maak Invullen Makkelijk</h3>
+                        <p>
+                            Gebruik autocomplete en zorg voor grote klikvlakken van ongeveer 44x44px. Dit maakt formulieren sneller, toegankelijker en prettiger om in te vullen.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Zorg Voor Duidelijke Structuur</h3>
+                        <p>
+                            Elk invoerveld moet een zichtbaar label hebben en de velden moeten in een logische volgorde staan. Daardoor voelt het formulier natuurlijker aan en begrijpen gebruikers sneller wat ze moeten doen.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Help Gebruikers Bij Fouten En Onderbrekingen</h3>
+                        <p>
+                            Na het verzenden/of direct bij het invullen moet duidelijk zichtbaar zijn welke velden fouten bevatten. Bij langere formulieren is het handig als gebruikers hun voortgang kunnen opslaan en later verder kunnen gaan.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Wat neem ik mee</h2>
+                <p>
+                    Ik neem vooral mee dat kleine details een formulier veel gebruiksvriendelijker maken. Dingen zoals autocomplete, duidelijke labels en goede foutmeldingen maken een groot verschil voor de gebruiker.
+                    Daarnaast wil ik bij toekomstige formulieren meer rekening houden met toegankelijkheid en duidelijkheid.
+                </p>
+            </div>
+
+        </article>
+
+        <span class="border"></span>
+
+        <article class="weekly-article">
+
+            <h2>Rosa</h2>
+            <p>Hacker Filosofie</p>
+
+            <div>
+                <h2>Wat hij vertelde</h2>
+                <p>
+                    Tijdens deze Weekly Nerd ging het over hacker filosofie. Hierbij draait het niet alleen om hacken, maar vooral om zelf technologie bouwen, begrijpen en beheren. Hoe meer je zelf doet, hoe meer controle je hebt over je eigen digitale omgeving.
+                    Er werd verteld dat we tegenwoordig erg afhankelijk zijn van grote techbedrijven. Veel apparaten zijn lastig te repareren door embedded systemen en geplande veroudering. Daarom is het belangrijk om meer controle terug te nemen door bijvoorbeeld zelf een server of website te hosten.
+                </p>
+            </div>
+
+            <div>
+                <h2>Belangrijke inzichten</h2>
+                <ul class="insight-list">
+                    <li>
+                        <h3>Zelf Controle Over Je Website</h3>
+                        <p>
+                            Door zelf servers en websites te beheren ben je minder afhankelijk van grote bedrijven. Met self-hosting en tools zoals Python of Node.js kan je eenvoudig zelf een lokale server draaien.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Snelle En Lichte Websites</h3>
+                        <p>
+                            Static site generators maken websites sneller en lichter. Omdat er minder serverwerk nodig is, gebruiken deze websites vaak ook minder energie.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Duurzamer Webdesign</h3>
+                        <p>
+                            Je kunt websites efficiënter maken door afbeeldingen te comprimeren, lazy loading te gebruiken en system fonts te kiezen. Daardoor laadt de website sneller en verbruikt hij minder data en energie.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Hergebruik En Toegankelijkheid</h3>
+                        <p>
+                            Oude computers kunnen nog goed gebruikt worden als server in plaats van weggegooid te worden. Daarnaast kan je met prefers-reduced-motion animaties uitschakelen voor gebruikers die gevoelig zijn voor
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Wat neem ik mee</h2>
+                <p>
+                    Ik neem vooral mee dat het belangrijk is om technologie beter te begrijpen in plaats van alleen te gebruiken en dat je oude tech nog prima kan gebruiken voor onderdelen of anderen doeleinde.
+                </p>
+            </div>
+
+        </article>
+
+        <span class="border"></span>
+
+        <article class="weekly-article">
+
+            <h2>Johan</h2>
+            <p>Stichting Accessibility</p>
+
+            <div>
+                <h2>Wat hij vertelde</h2>
+                <p>
+                    Tijdens deze Weekly Nerd vertelde Johan over web accessibility en hoe mensen met beperkingen websites gebruiken. Hij liet een screenreader demonstratie zien op de website van Bol.com. Het ging erg snel waardoor ik niet alles kon volgen, maar je hoorde goed hoeveel links en onderdelen een screenreader opleest.
+                    Hij vertelde ook dat je toegankelijkheid niet goed kunt ontwerpen zonder feedback van de mensen die deze hulpmiddelen echt gebruiken.
+                    Daarnaast besprak hij de vier basisprincipes van de WCAG: <br>
+                    - Perceivable: Informatie moet waarneembaar zijn, bijvoorbeeld door tekstalternatieven voor afbeeldingen. <br>
+                    - Operable: Gebruikers moeten de interface kunnen bedienen, bijvoorbeeld met een toetsenbord. <br>
+                    - Understandable: Informatie en bediening moeten begrijpelijk zijn, bijvoorbeeld door duidelijke taal en consistente navigatie. <br>
+                    - Robust: Inhoud moet robuust genoeg zijn om betrouwbaar te werken.
+                </p>
+                <div>
+                    <p class="quote">WCAG is een goede basis, maar kan je ook verkeerd kunt interpreteren.</p>
+                </div>
+            </div>
+
+            <div>
+                <h2>Belangrijke inzichten</h2>
+                <ul class="insight-list">
+                    <li>
+                        <h3>Bouw Op Bestaande Hulpmiddelen</h3>
+                        <p>
+                            Screenreaders hebben al veel ingebouwde functies. Daarom hoef je niet overal extra skiplinks of hulpmiddelen toe te voegen. Decoratieve afbeeldingen hoeven ook geen beschrijvende alt-tekst te hebben. Een lege alt is dan voldoende.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Test Met Echte Gebruikers</h3>
+                        <p>
+                            Toegankelijkheid testen werkt het beste samen met mensen die daadwerkelijk beperkingen hebben. Zij ervaren problemen die je zelf vaak niet ziet tijdens het bouwen.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Zorg Voor Duidelijke Navigatie En Structuur</h3>
+                        <p>
+                            Gebruikers van screenreaders navigeren vaak met headings door een pagina. Daarom is een logische heading structuur belangrijk. Ook moeten gebruikers informatie snel kunnen vinden zonder te veel stappen of klikken.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Maak De Interface Rustig En Bedienbaar</h3>
+                        <p>
+                            Duidelijke focus state helpen gebruikers die met een toetsenbord navigeren. Vermijd daarnaast te veel animaties, kleuren, advertenties, sticky headers en bewegende elementen, omdat die websites onbruikbaar of vervelend kunnen maken voor sommige gebruikers.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Wat neem ik mee</h2>
+                <p>
+                    Ik neem vooral mee dat toegankelijkheid veel verder gaat dan alleen WCAG regels volgen. Het belangrijkste is begrijpen hoe echte gebruikers websites ervaren.
+                    Daarnaast wil ik meer testen met screenreaders en beter nadenken over rust, duidelijkheid en navigatie in mijn designs.
+                </p>
+            </div>
+
+        </article>
+
+
+    </main>
+
+    <footer>
+        <div>
+            <h2>Jean-Carlo's<br>Web design & Dev</h2>
+            <p>Learning, building, and documenting my growth during the Web Design and Development minor.</p>
+        </div>
+
+        <nav aria-label="Footer navigation">
+            <a href="/index.html">Home</a>
+            <a href="/sprint0.html">Sprint 0</a>
+            <a href="/hackathon.html">Hackathon</a>
+            <a href="/weeklynerd.html">Weekly Nerd</a>
+            <a href="/projects.html">Projects</a>
+            <a href="/meesterproef.html">Meesterproef</a>
+        </nav>
+
+        <p>© 2026 Jean-Carlo. All rights reserved.</p>
+    </footer>
+</body>
+</html>

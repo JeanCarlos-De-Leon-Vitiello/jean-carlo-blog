@@ -1,3 +1,7 @@
+:root {
+    interpolate-size: allow-keywords;
+}
+
 .weekly-article {
     max-width: var(--content-max-width);
     margin: 0 auto;
@@ -79,6 +83,117 @@
 .insight-list p {
     font-family: var(--secondairy-font);
     line-height: 1.6;
+}
+
+.popover-demo-button,
+.popover-demo button {
+    margin-top: 1.25rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--accent-soft-color);
+    color: var(--primairy-color);
+    font-family: var(--secondairy-font);
+    cursor: pointer;
+}
+
+.popover-demo-button:hover,
+.popover-demo-button:focus-visible,
+.popover-demo button:hover,
+.popover-demo button:focus-visible {
+    background-color: var(--accent-color);
+}
+
+.weekly-article .popover-demo {
+    width: min(22rem, calc(100vw - 2rem));
+    margin: auto;
+    padding: 1.25rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--card-surface-color);
+}
+
+.popover-demo p {
+    color: var(--secondary-color);
+    font-family: var(--secondairy-font);
+    line-height: 1.6;
+}
+
+.popover-demo::backdrop {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.weekly-article .interpolate-demo {
+    margin-top: 1.25rem;
+    max-width: 18rem;
+    font-family: var(--secondairy-font);
+}
+
+.interpolate-demo input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.interpolate-demo label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--accent-soft-color);
+    color: var(--primairy-color);
+    cursor: pointer;
+}
+
+.interpolate-demo label::after {
+    content: "+";
+    color: var(--primairy-color);
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.interpolate-demo nav {
+    height: 0;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-top: 0;
+    border-radius: 0 0 0.5rem 0.5rem;
+    transition: height 0.3s ease, border-color 0.3s ease;
+}
+
+.interpolate-demo nav a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.interpolate-demo nav a:hover,
+.interpolate-demo nav a:focus-visible {
+    background-color: var(--card-surface-color);
+    color: var(--accent-soft-color);
+}
+
+.interpolate-demo input:focus-visible + label {
+    outline: 2px solid var(--accent-soft-color);
+    outline-offset: 3px;
+}
+
+.interpolate-demo input:checked + label {
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.interpolate-demo input:checked + label::after {
+    content: "-";
+}
+
+.interpolate-demo input:checked ~ nav {
+    height: auto;
+    border-color: var(--accent-color);
 }
 
 @media (max-width: 800px) {

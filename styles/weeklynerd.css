@@ -85,6 +85,203 @@
     line-height: 1.6;
 }
 
+.first-line-demo {
+    margin-top: 1.25rem;
+    padding: 1rem;
+    border-left: 4px solid var(--accent-color);
+    background-color: var(--primairy-color);
+}
+
+.first-line-demo::first-line {
+    color: var(--accent-soft-color);
+    font-weight: bold;
+}
+
+.code-example {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--primairy-color);
+    overflow-x: auto;
+}
+
+.code-example code {
+    color: var(--accent-soft-color);
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.weekly-article .details-demo {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.details-demo details {
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--primairy-color);
+    overflow: hidden;
+}
+
+.details-demo summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    color: var(--accent-soft-color);
+    font-family: var(--secondairy-font);
+    cursor: pointer;
+}
+
+.details-demo summary::-webkit-details-marker {
+    display: none;
+}
+
+.details-demo summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.details-demo details[open] summary::after {
+    content: "-";
+}
+
+.details-demo p {
+    padding: 0 1rem 1rem;
+}
+
+.dialog-demo-button,
+.dialog-demo button {
+    margin-top: 1.25rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--accent-soft-color);
+    color: var(--primairy-color);
+    font-family: var(--secondairy-font);
+    cursor: pointer;
+}
+
+.dialog-demo-button:hover,
+.dialog-demo-button:focus-visible,
+.dialog-demo button:hover,
+.dialog-demo button:focus-visible {
+    background-color: var(--accent-color);
+}
+
+.dialog-demo {
+    width: min(24rem, calc(100vw - 2rem));
+    padding: 1.5rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--card-surface-color);
+    opacity: 0;
+    transform: translateY(1rem) scale(0.96);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.dialog-demo[open] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@starting-style {
+    .dialog-demo[open] {
+        opacity: 0;
+        transform: translateY(1rem) scale(0.96);
+    }
+}
+
+.dialog-demo::backdrop {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.dialog-demo h4 {
+    color: var(--accent-soft-color);
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+}
+
+.dialog-demo p {
+    font-family: var(--secondairy-font);
+    line-height: 1.6;
+}
+
+.weekly-article .steps-cube-demo {
+    display: grid;
+    place-items: center;
+    min-height: 12rem;
+    margin-top: 1.25rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--primairy-color);
+    perspective: 32rem;
+}
+
+.steps-cube {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    transform-style: preserve-3d;
+    animation: cube-steps 2s steps(8) infinite;
+}
+
+.steps-cube span {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--accent-color);
+    background-color: rgba(242, 220, 195, 0.9);
+    color: var(--primairy-color);
+    font-family: var(--font-primary);
+    font-size: 2rem;
+}
+
+.steps-cube .front {
+    transform: translateZ(2.5rem);
+}
+
+.steps-cube .back {
+    transform: rotateY(180deg) translateZ(2.5rem);
+}
+
+.steps-cube .right {
+    transform: rotateY(90deg) translateZ(2.5rem);
+}
+
+.steps-cube .left {
+    transform: rotateY(-90deg) translateZ(2.5rem);
+}
+
+.steps-cube .top {
+    transform: rotateX(90deg) translateZ(2.5rem);
+}
+
+.steps-cube .bottom {
+    transform: rotateX(-90deg) translateZ(2.5rem);
+}
+
+@keyframes cube-steps {
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .steps-cube {
+        animation: none;
+        transform: rotateX(-20deg) rotateY(35deg);
+    }
+}
+
 .popover-demo-button,
 .popover-demo button {
     margin-top: 1.25rem;

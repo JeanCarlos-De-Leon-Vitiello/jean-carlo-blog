@@ -87,11 +87,54 @@
                     <li>
                         <h3>Accordions met details en summary</h3>
                         <p>Killian liet zien dat je tegenwoordig accordions kunt maken met alleen HTML, zonder JavaScript te gebruiken. Met de elementen <code class="code">details</code> en <code class="code">summary</code> kan je eenvoudig een uitklapbaar onderdeel maken waarbij alleen de titel zichtbaar is totdat iemand erop klikt. Wanneer het onderdeel geopend wordt, voegt de browser automatisch een open status toe. Daarnaast kan je het standaard pijltje aanpassen met CSS. Ook liet hij zien dat je met het <code class="code">name</code> attribuut meerdere accordions aan elkaar kunt koppelen, zodat er maar één tegelijk open kan staan. Open je een nieuwe accordion, dan sluit de vorige automatisch.</p>
+
+                        <div class="details-demo">
+                            <details name="accordion-demo" open>
+                                <summary>HTML</summary>
+                                <p>De browser regelt zelf het openen en sluiten.</p>
+                            </details>
+
+                            <details name="accordion-demo">
+                                <summary>CSS</summary>
+                                <p>Met CSS kun je de open status en het pijltje stylen.</p>
+                            </details>
+
+                            <details name="accordion-demo">
+                                <summary>Geen JavaScript</summary>
+                                <p>Door hetzelfde name attribuut blijft er maar een item open.</p>
+                            </details>
+                        </div>
+
+                        <pre class="code-example"><code>&lt;details name="accordion-demo"&gt;
+    &lt;summary&gt;HTML&lt;/summary&gt;
+    &lt;p&gt;Content van de accordion.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
                     </li>
 
                     <li>
                         <h3>Dialog</h3>
                         <p>Tot slot vertelde hij over het dialog element. Dit is eigenlijk een ingebouwde popup van HTML. Het element is standaard verborgen totdat je het opent. Met <code class="code">:backdrop</code> kan je de achtergrond achter de popup stijlen, bijvoorbeeld donker maken. Ook <code class="code">@starting-style</code> kan gebruikt worden om dialogs te animeren.</p>
+
+                        <button class="dialog-demo-button" onclick="document.querySelector('#dialog-demo').showModal()">
+                            Open dialog
+                        </button>
+
+                        <dialog class="dialog-demo" id="dialog-demo">
+                            <h4>Native dialog</h4>
+                            <p>Dit venster gebruikt het HTML dialog element en een gestylde backdrop.</p>
+
+                            <form method="dialog">
+                                <button>Sluiten</button>
+                            </form>
+                        </dialog>
+
+                        <pre class="code-example"><code>&lt;dialog&gt;
+    &lt;p&gt;Dit is een native dialog.&lt;/p&gt;
+&lt;/dialog&gt;
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.65);
+}</code></pre>
                     </li>
                 </ul>
             </div>
@@ -203,6 +246,27 @@
                         <p>
                             Met steps() kan je een animatie maken met meerdere afbeeldingen zodat het lijkt op een flipbook of 3D animatie/video.
                         </p>
+
+                        <div class="steps-cube-demo" aria-label="Demo van een stapsgewijze cubus animatie">
+                            <div class="steps-cube">
+                                <span class="front">1</span>
+                                <span class="back">2</span>
+                                <span class="right">3</span>
+                                <span class="left">4</span>
+                                <span class="top">5</span>
+                                <span class="bottom">6</span>
+                            </div>
+                        </div>
+
+                        <pre class="code-example"><code>.steps-cube {
+    animation: cube-steps 2s steps(8) infinite;
+}
+
+@keyframes cube-steps {
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}</code></pre>
                     </li>
 
                     <li>
@@ -222,6 +286,15 @@
                     <li>
                         <h3>::first-line</h3>
                         <p>Met ::first-line kan je alleen de eerste regel van een tekst apart stylen.</p>
+
+                        <p class="first-line-demo">
+                            Deze eerste regel krijgt een andere stijl. De rest van deze tekst blijft normaal, waardoor je goed ziet dat ::first-line alleen invloed heeft op de eerste regel van een tekstblok.
+                        </p>
+
+                        <pre class="code-example"><code>.first-line-demo::first-line {
+    color: #f2dcc3;
+    font-weight: bold;
+}</code></pre>
                     </li>
 
                 </ul>

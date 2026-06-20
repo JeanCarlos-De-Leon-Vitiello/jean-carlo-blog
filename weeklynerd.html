@@ -643,21 +643,75 @@ dialog::backdrop {
 
         <article class="weekly-article">
             <h2>De Voorhoede</h2>
-            <p></p>
+            <p>Tijdens de bezoek aan De Voorhoede kregen we een kijkje in hoe moderne webtechnologieën worden toegepast in echte projecten. De presentatie behandelde verschillende onderwerpen, waaronder geavanceerde CSS-technieken, het werken met het NL Design System en het ontwikkelen van Progressive Web Apps volgens het offline first-principe. Het centrale thema was het bouwen van websites en applicaties die niet alleen mooi en consistent zijn, maar ook betrouwbaar blijven functioneren onder verschillende omstandigheden.</p>
 
             <div>
-                <h2>Wat hij vertelde</h2>
-                <p></p>
+                <h2>Wat er verteld werd</h2>
+                <p>De presentatie begon met een aantal CSS-technieken die werden gebruikt in projecten van De Voorhoede. Hierbij werd onder andere uitgelegd hoe pseudo-elementen zoals ::after kunnen worden ingezet om visuele effecten toe te voegen zonder extra HTML-elementen. In combinatie met clip-path kunnen complexe vormen en animaties worden gemaak.</p>
+                <br>
+                <p>Vervolgens werd ingegaan op het NL Design System. Hierbij werd uitgelegd hoe verschillende organisaties dezelfde design tokens en componenten kunnen hergebruiken om consistente interfaces te bouwen. In plaats van steeds nieuwe stijlen te ontwerpen, wordt er gewerkt met bestaande tokens voor kleuren, spacing en typografie. Wanneer er verbeteringen nodig zijn, gebeurt dit via pull requests zodat de kwaliteit van het systeem behouden blijft.</p>
+                <br>
+                <p>Het laatste deel van de presentatie ging over Progressive Web Apps en offline first ontwikkelen. De spreker benadrukte dat ontwikkelaars er niet vanuit moeten gaan dat gebruikers altijd internet hebben. Door gegevens tijdelijk lokaal op te slaan en later te synchroniseren, blijven applicaties bruikbaar wanneer een verbinding wegvalt. Dit is vooral belangrijk voor toepassingen die buiten kantooromgevingen worden gebruikt.</p>
             </div>
 
             <div>
                 <h2>Belangrijke inzichten</h2>
                 <ul class="insight-list">
                     <li>
-                        <h3></h3>
+                        <h3>Moderne CSS kan veel problemen oplossen zonder extra HTML</h3>
                         <p>
-                            
+                            Met pseudo-elementen zoals <code class="code">::after</code> kunnen visuele effecten worden toegevoegd zonder extra markup. Hierdoor blijft de HTML schoner en wordt styling vooral in CSS opgelost.
                         </p>
+
+                        <pre class="code-example"><code>.title::after {
+    content: "";
+    position: absolute;
+}</code></pre>
+                    </li>
+
+                    <li>
+                        <h3>Clip-path maakt creatieve ontwerpen mogelijk</h3>
+                        <p>
+                            Met <code class="code">clip-path</code> kunnen complexe vormen worden gemaakt zonder afbeeldingen te gebruiken. Dit maakt het makkelijker om creatieve layouts direct met CSS te bouwen.
+                        </p>
+
+                        <pre class="code-example"><code>.shape {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+}</code></pre>
+                    </li>
+
+                    <li>
+                        <h3>Design tokens zorgen voor consistentie</h3>
+                        <p>
+                            Door gebruik te maken van bestaande tokens binnen het NL Design System blijven ontwerpen en code beter op elkaar afgestemd. Kleuren en spacing komen dan uit dezelfde gedeelde basis.
+                        </p>
+
+                        <pre class="code-example"><code>.button {
+    background: var(--denhaag-color-primary);
+    padding: var(--denhaag-space-md);
+}</code></pre>
+                    </li>
+
+                    <li>
+                        <h3>Offline first maakt applicaties betrouwbaarder</h3>
+                        <p>
+                            Applicaties moeten blijven werken wanneer er geen internetverbinding beschikbaar is. Lokale opslag en synchronisatie spelen hierbij een belangrijke rol.
+                        </p>
+
+                        <pre class="code-example"><code>localStorage.setItem("data", JSON.stringify(data));</code></pre>
+                    </li>
+
+                    <li>
+                        <h3>Progressive Web Apps bieden een betere gebruikerservaring</h3>
+                        <p>
+                            Door gebruik te maken van service workers kunnen bestanden lokaal worden opgeslagen, waardoor een website sneller laadt en ook offline beschikbaar blijft.
+                        </p>
+
+                        <pre class="code-example"><code>self.addEventListener("fetch", (event) => {
+    event.respondWith(
+        caches.match(event.request)
+    );
+});</code></pre>
                     </li>
                 </ul>
             </div>
@@ -665,7 +719,7 @@ dialog::backdrop {
             <div>
                 <h2>Wat neem ik mee</h2>
                 <p>
-                   
+                    Het bezoek aan De Voorhoede liet zien hoe webontwikkeling verder gaat dan alleen mooie interfaces bouwen. Ik vond het interessant om te zien hoe CSS steeds krachtiger wordt en hoe design systems bijdragen aan consistente producten. Daarnaast sprak het offline first-principe mij aan, omdat het laat zien dat een goede gebruikerservaring niet afhankelijk mag zijn van een perfecte internetverbinding.
                 </p>
             </div>
         </article>
@@ -680,16 +734,50 @@ dialog::backdrop {
                 <h2>Wat er verteld werd</h2>
                 <p>Tijdens de presentatie werd uitgelegd dat een goed design system veel verder gaat dan alleen een verzameling componenten. De basis begint bij een sterke foundation layer waarin zaken zoals kleuren, typografie, spacing en andere ontwerpprincipes worden vastgelegd. Vanuit deze basis worden vervolgens kleinere herbruikbare onderdelen opgebouwd, ook wel atoms genoemd.</p>
                 <br>
-                <p></p>
+                <p>Een belangrijk onderdeel van de sessie was het gebruik van design tokens. Dit zijn gestandaardiseerde waarden die zowel door designers als developers gebruikt kunnen worden. Wanneer deze tokens rechtstreeks vanuit Figma worden gegenereerd, ontstaat er minder kans op fouten en blijven designs consistenter tijdens de ontwikkeling.</p>
+                <br>
+                <p>Daarnaast werd het maturity level framework besproken. Dit framework helpt teams om te beoordelen hoe volwassen hun design system is. Hierbij wordt gekeken naar de structuur van Figma-bestanden, de kwaliteit van componenten en de manier waarop design tokens worden beheerd en gebruikt binnen projecten.</p>
             </div>
 
             <div>
                 <h2>Belangrijke inzichten</h2>
                 <ul class="insight-list">
                     <li>
-                        <h3></h3>
+                        <h3>Een sterke foundation zorgt voor consistentie</h3>
                         <p>
-                            
+                            Alle componenten bouwen voort op dezelfde basiswaarden voor kleuren, spacing en typografie. Hierdoor ontstaat een uniforme gebruikerservaring en hoeft niet elk onderdeel opnieuw vanaf nul ontworpen te worden.
+                        </p>
+
+                        <pre class="code-example"><code>:root {
+    --color-primary: #0066cc;
+    --spacing-md: 24px;
+    --font-size-body: 16px;
+}</code></pre>
+                    </li>
+
+                    <li>
+                        <h3>Design tokens verbinden design en development</h3>
+                        <p>
+                            Door tokens vanuit Figma te exporteren gebruiken designers en developers exact dezelfde waarden. Een kleur, spacing of font-size wordt dan niet handmatig overgenomen, maar direct gekoppeld aan dezelfde bron.
+                        </p>
+
+                        <pre class="code-example"><code>.button {
+    background: var(--color-primary);
+    padding: var(--spacing-md);
+}</code></pre>
+                    </li>
+
+                    <li>
+                        <h3>Atoms vormen de bouwstenen van een design system</h3>
+                        <p>
+                            Kleine, herbruikbare onderdelen zoals knoppen, iconen en invoervelden vormen de basis voor grotere componenten en pagina's. Door deze onderdelen goed op te zetten blijft het systeem schaalbaar en overzichtelijk.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Een maturity framework helpt bij groei</h3>
+                        <p>
+                            Door regelmatig te evalueren hoe een design system is opgezet, kunnen teams verbeterpunten identificeren. Zo wordt duidelijk waar de workflow consistenter, professioneler of beter geautomatiseerd kan worden.
                         </p>
                     </li>
                 </ul>
@@ -698,7 +786,7 @@ dialog::backdrop {
             <div>
                 <h2>Wat neem ik mee</h2>
                 <p>
-                   
+                   Deze bezoek maakte duidelijk hoe belangrijk een goed georganiseerd design system is voor de samenwerking tussen designers en developers. Vooral het gebruik van design tokens vond ik interessant, omdat hiermee ontwerpkeuzes automatisch kunnen worden vertaald naar code. Ik neem mee dat een sterke foundation en consistente tokens niet alleen zorgen voor een efficiënter ontwikkelproces, maar ook voor een betere en meer uniforme gebruikerservaring.
                 </p>
             </div>
         </article>

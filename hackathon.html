@@ -45,25 +45,16 @@
 
         <section class="project-intro">
             <h2>NEBULA XPLORER</h2>
-            <p>Tijdens dit projectweek ontwikkelen we samen in een team een prototype voor SRON een website gebaseerd op een echte satellietmissie. De website bevat onder andere informatie over zwarte gaten, een interactieve visualisatie van een rake/satelliet en informatie over de missie. Het doel is om de gebruiker mee te nemen in de reis van start to finish.</p>
+            <p>Tijdens deze sprint hebben we in één week als team een prototype ontwikkeld voor een echte opdrachtgever: SRON (Netherlands Institute for Space Research). De opdracht was om een website te ontwerpen en bouwen voor NEBULA Xplorer, een satellietmissie die met behulp van een X-ray telescoop onderzoek doet naar zwarte gaten.
+                Bij deze opdracht lag de focus niet alleen op een goede gebruikerservaring, maar ook op een opvallend en creatief ontwerp. De website moest visueel indrukwekkend zijn en responsive werken op verschillende apparaten. Daarnaast werden we uitgedaagd om interactieve elementen, animaties en verborgen details (paaseieren) toe te voegen.</p>
 
             <div class="team-container">
                 <h2>Team</h2>
                 <ul class="team">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-
-            <div>
-                <h2>Uitdagingen</h2>
-
-                <ul class="uitdagingen">
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Jean-carlos</li>
+                    <li>Mila</li>
+                    <li>Jeppe</li>
+                    <li>Aya</li>
                 </ul>
             </div>
 
@@ -73,18 +64,100 @@
 
         <section class="project-content">
             <article>
-                <h2>Feedback</h2>
-                <p></p>
-            </article>
-
-            <article>
                 <h2>Nieuwe inzichten</h2>
-                <p></p>
+                <ul class="insight-list">
+                    <li>
+                        <h3>Werken met 3D-modellen op het web</h3>
+                        <p>Tijdens dit project heb ik geleerd hoe ik 3D-modellen kan gebruiken binnen een website met behulp van model-viewer. Voorheen had ik nog nooit gewerkt met 3D-assets in een webproject. Ik ontdekte hoe ik een .glb-bestand kan inladen, hoe gebruikers het model kunnen bekijken en hoe ik interactieve hotspots kan toevoegen. </p>
+
+                        <pre class="code-example"><code>&lt;model-viewer
+    src="./3d/rocket2.glb"
+    camera-controls
+    camera-orbit="auto 90deg auto"&gt;
+
+    &lt;a href="./satellite.html"
+        class="click-button"
+        slot="hotspot-1"&gt;
+        Release Satellite
+    &lt;/a&gt;
+
+&lt;/model-viewer&gt;</code></pre>
+                    </li>
+
+                    <li>
+                        <h3>Interactie koppelen aan gebruikersgedrag</h3>
+                        <p>Een nieuw inzicht voor mij was dat je informatie kunt tonen op basis van hoe een gebruiker met een object omgaat. In plaats van een gewone knop te gebruiken, liet ik tekst verschijnen wanneer de gebruiker de raket naar een bepaalde kant draaide. Hierdoor leerde ik hoe events en condities samenwerken binnen JavaScript.</p>
+
+                        <pre class="code-example"><code>viewer.addEventListener('camera-change', () =&gt; {
+    const orbit = viewer.getCameraOrbit();
+    const degrees = orbit.theta * (180 / Math.PI);
+
+    const normalized = ((degrees % 360) + 360) % 360;
+
+    rocketTekstAchter.classList.toggle(
+        'block',
+        Math.abs(normalized - 90) &lt; 20
+    );
+});</code></pre>
+
+                        <p>Door deze techniek voelde de website meer als een interactieve ervaring dan als een standaard informatieve website.</p>
+                    </li>
+
+                    <li>
+                        <h3>CSS en JavaScript laten samenwerken</h3>
+                        <p>Tijdens deze sprint heb ik beter geleerd hoe CSS en JavaScript elkaar kunnen versterken. JavaScript bepaalde wanneer een element zichtbaar moest zijn en CSS zorgde voor de presentatie. Hierdoor bleef de code overzichtelijk en was het makkelijker om onderdelen aan te passen.</p>
+
+                        <pre class="code-example"><code>.achter,
+.links,
+.rechts {
+    display: none;
+}
+
+.achter.block,
+.links.block,
+.rechts.block {
+    display: block;
+}</code></pre>
+
+                        <p>In JavaScript hoefde ik vervolgens alleen een class toe te voegen of te verwijderen.</p>
+
+                        <pre class="code-example"><code>rocketTekstAchter.classList.toggle('block', grade90);</code></pre>
+
+                        <p>Hierdoor begon ik beter te begrijpen hoe je gedrag en styling van elkaar kunt scheiden.</p>
+                    </li>
+
+                    <li>
+                        <h3>Kleine animaties maken een website veel sterker</h3>
+                        <p>Ik heb geleerd dat kleine animaties een grote invloed hebben op de gebruikerservaring. In plaats van gebruikers direct naar een volgende pagina te sturen, heb ik een overgang toegevoegd waardoor de website meer aanvoelde als één geheel.</p>
+
+                        <pre class="code-example"><code>volgendePaginaButton.addEventListener('click', (event) =&gt; {
+    event.preventDefault();
+
+    document.body.classList.add("pagina-verlaten");
+});</code></pre>
+
+                        <p>Ook op de outro-pagina heb ik een vertraging toegevoegd voordat tekst zichtbaar werd.</p>
+
+                        <pre class="code-example"><code>setTimeout(() =&gt; {
+    outroTekst.classList.add("is-visible");
+}, 2500);</code></pre>
+
+                        <p>Deze kleine details maakten de ervaring rustiger en professioneler.</p>
+                    </li>
+                </ul>
             </article>
 
             <article>
                 <h2>Reflectie</h2>
-                <p></p>
+                <p>Tijdens dit project heb ik veel geleerd over het maken van interactieve websites. Mijn grootste bijdrage was het bouwen van de launch-pagina, het toevoegen van een 3D-model en het maken van verschillende animaties en interacties. Ik vond het leuk om te werken aan onderdelen die de website meer als een experience laten aanvoelen.</p>
+
+                <p>Een van de dingen waar ik het meest van heb geleerd, was het werken met een 3D-model van een raket. Ik moest uitzoeken hoe ik het model kon tonen op de website en hoe ik hier interacties aan kon koppelen. Ook heb ik JavaScript gebruikt om informatie te tonen wanneer de gebruiker de raket draait. Hierdoor heb ik meer inzicht gekregen in hoe events, functies en classes samenwerken.</p>
+
+                <p>Daarnaast heb ik gewerkt aan animaties en overgangen tussen pagina's. Ik heb gemerkt dat kleine details veel invloed hebben op de gebruikerservaring. Door informatie niet direct te tonen en door overgangen toe te voegen, voelt de website rustiger en professioneler aan.</p>
+
+                <p>Soms liep ik vast bij het oplossen van problemen, vooral wanneer iets niet werkte zoals ik had verwacht. Door veel te testen en verschillende oplossingen uit te proberen heb ik deze problemen uiteindelijk kunnen oplossen. Hierdoor heb ik niet alleen nieuwe technieken geleerd, maar ook meer vertrouwen gekregen in mijn eigen vaardigheden.</p>
+
+                <p>Ik ben tevreden met mijn bijdrage aan het project. Ik heb nieuwe dingen geleerd op het gebied van HTML, CSS, JavaScript en 3D-modellen en ik heb ervaren hoe belangrijk interactie en animatie kunnen zijn voor een website.</p>
             </article>
 
             <article class="eindresultaat">

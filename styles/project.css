@@ -5,12 +5,14 @@ main > section:not(.hero-section) {
 }
 
 .project-intro,
+.project-goals,
 .project-content {
     display: grid;
     gap: 3rem;
 }
 
 .project-intro h2,
+.project-goals h2,
 .project-content h2 {
     font-family: var(--font-primary);
     font-size: clamp(2.5rem, 6vw, 5rem);
@@ -18,6 +20,7 @@ main > section:not(.hero-section) {
 }
 
 .project-intro p,
+.project-goals p,
 .project-content p,
 .project-content a {
     font-family: var(--secondairy-font);
@@ -25,9 +28,151 @@ main > section:not(.hero-section) {
     line-height: 1.7;
 }
 
+.project-intro > p,
+.project-intro > div:first-child {
+    max-width: 48rem;
+}
+
+.team-container {
+    display: grid;
+    gap: 1rem;
+}
+
+.team {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    list-style: none;
+}
+
+.team li {
+    min-height: 5rem;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    border: 1px solid var(--accent-color);
+    border-top: 0.35rem solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--card-surface-color);
+    color: var(--accent-soft-color);
+    font-family: var(--font-primary);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    line-height: 1;
+    text-align: center;
+}
+
+.project-goals > div:first-child {
+    max-width: 48rem;
+}
+
+.project-goals > div {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.project-goals .leerdoelen {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.project-goals .leerdoelen li {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    min-height: 100%;
+    padding: 1.5rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--card-surface-color);
+}
+
+.project-goals .leerdoelen li > div {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+}
+
+.project-goals .leerdoelen li svg {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.project-goals .leerdoelen li p {
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.project-goals .leerdoelen li:nth-child(1) {
+    border-top: 0.35rem solid #9fdef8;
+}
+
+.project-goals .leerdoelen li:nth-child(1) > div {
+    background-color: #9fdef8;
+}
+
+.project-goals .leerdoelen li:nth-child(2) {
+    border-top: 0.35rem solid #f5d372;
+}
+
+.project-goals .leerdoelen li:nth-child(2) > div {
+    background-color: #f5d372;
+}
+
+.project-goals .leerdoelen li:nth-child(3) {
+    border-top: 0.35rem solid #9d6bf7;
+}
+
+.project-goals .leerdoelen li:nth-child(3) > div {
+    background-color: #9d6bf7;
+}
+
 .project-content article:not(.eindresultaat) {
     display: grid;
     gap: 1rem;
+}
+
+.project-content .insight-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.project-content .insight-list li {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--accent-color);
+    border-top: 0.35rem solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--card-surface-color);
+}
+
+.project-content .insight-list h3 {
+    color: var(--accent-soft-color);
+    font-family: var(--font-primary);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1;
+}
+
+.code-example {
+    max-width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--primairy-color);
+    overflow-x: auto;
+}
+
+.code-example code {
+    color: var(--accent-soft-color);
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 .project-content .eindresultaat {
@@ -63,7 +208,26 @@ main > section:not(.hero-section) {
     transform: translateY(-0.15rem);
 }
 
+@media (max-width: 900px) {
+    .project-goals .leerdoelen,
+    .project-content .insight-list {
+        grid-template-columns: 1fr;
+    }
+
+    .team {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 600px) {
+    .team {
+        grid-template-columns: 1fr;
+    }
+
+    .project-goals .leerdoelen li {
+        padding: 1.25rem;
+    }
+
     .project-content .eindresultaat {
         align-items: stretch;
     }

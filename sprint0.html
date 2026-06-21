@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/Global.css">
     <link rel="stylesheet" href="styles/Sprint0.css">
     <script type="module" src="Scripts/hamburger.js" defer></script>
+    <script type="module" src="Scripts/sprint0.js" defer></script>
 </head>
 <body>
     <header>
@@ -46,7 +47,7 @@
         <section>
             <div>
                 <h2>De opdracht</h2>
-                <p>Ontwerp en bouw een persoonlijke website waarmee je jezelf voorstelt, waarmee je jouw startniveau overstijgt en waarmee je jouw doelen voor de minor presenteert.</p>
+                <p>Maak een persoonlijke website waarin je jezelf voorstelt, je huidige vaardigheden toont en je doelen voor de minor presenteert. Voor deze Sprint 0-opdracht heb ik een website ontworpen en gebouwd met HTML en CSS. Op de website vertel ik wie ik ben, wat mijn interesses zijn en welke kennis en vaardigheden ik al bezit. Daarnaast beschrijf ik mijn leerdoelen voor de minor en hoe ik mezelf verder wil ontwikkelen. Deze opdracht laat mijn startniveau zien en vormt een basis om mijn groei gedurende de minor te volgen.</p>
             </div>
 
             <div>
@@ -93,10 +94,119 @@
             </div>
         </section>
 
-        <section class="eindresultaat">
+        <section class="sprint0-content">
+            <article>
+                <h2>Nieuwe inzichten</h2>
+                <ul class="insight-list">
+                    <li>
+                        <h3>3D-effecten maken met CSS</h3>
+                        <p>Tijdens het bouwen van mijn website wilde ik interactieve kaarten maken die kunnen omdraaien. Hierdoor heb ik geleerd hoe verschillende CSS-eigenschappen samenwerken om een 3D-effect te creëren. Ik ontdekte dat eigenschappen zoals perspective, transform-style en backface-visibility essentieel zijn om een realistisch flip-effect te maken.</p>
+
+                        <div class="flip-demo" aria-label="Voorbeeld van een CSS flipkaart">
+                            <div class="flip-card">
+                                <div class="flip-card-front">
+                                    <span>Voorkant</span>
+                                    <p>Hover over de kaart</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <span>Achterkant</span>
+                                    <p>3D flip met CSS</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <pre class="code-example"><code>.kaartul {
+    perspective: 5000px;
+}
+
+.kaart {
+    transform-style: preserve-3d;
+    transition: 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.voorkant,
+.achterkant {
+    backface-visibility: hidden;
+}</code></pre>
+                    </li>
+
+                    <li>
+                        <h3>Werken met API-data en Fetch</h3>
+                        <p>Ik leerde dat het ophalen van data slechts één stap is en dat je de ontvangen JSON-data vervolgens moet verwerken voordat deze zichtbaar wordt op de pagina. Dit gaf mij meer inzicht in hoe moderne websites informatie laden en weergeven.</p>
+
+                        <div class="fetch-demo" aria-label="Voorbeeld van API-data op de pagina">
+                            <span>API resultaat</span>
+                            <strong data-fetch-name>Laden...</strong>
+                            <p data-fetch-role></p>
+                        </div>
+
+                        <pre class="code-example"><code>async function tekstInvoegen() {
+    const res = await fetch(URL);
+    const data = await res.json();
+
+    document.querySelector('h1').textContent =
+        data.data.name;
+}</code></pre>
+                    </li>
+
+                    <li>
+                        <h3>Het belang van goede selectors</h3>
+                        <p>Tijdens het maken van mijn ticker en light/dark-mode kwam ik erachter dat CSS-selectors veel invloed hebben op hoe een website zich gedraagt. Wanneer een selector niet specifiek genoeg is, kunnen meerdere elementen tegelijk worden aangepast zonder dat dit de bedoeling is. Hierdoor heb ik geleerd om bewuster na te denken over mijn HTML-structuur en de selectors die ik gebruik. Dit heeft mijn code overzichtelijker en beter onderhoudbaar gemaakt.</p>
+
+                        <div class="selector-demo" aria-label="Voorbeeld van specifieke CSS selectors">
+                            <div>
+                                <p>Algemene tekst</p>
+                            </div>
+                            <div class="kaart">
+                                <p class="titel">Alleen deze titel krijgt de kaartstijl</p>
+                            </div>
+                        </div>
+
+                        <pre class="code-example"><code>/* Te algemeen */
+div {
+    color: white;
+}
+
+/* Specifieker */
+.kaart .titel {
+    color: white;
+}</code></pre>
+                    </li>
+
+                    <li>
+                        <h3>JavaScript-logica begrijpen met willekeurige data</h3>
+                        <p>Een van mijn leerdoelen was om JavaScript beter te begrijpen. Tijdens deze sprint heb ik geoefend met Math.random() om willekeurige kaarten en studentgegevens te tonen. Hierdoor moest ik nadenken over functies, variabelen en logica. Het schrijven van deze functie zonder hulp gaf mij meer vertrouwen in mijn eigen programmeervaardigheden.</p>
+
+                        <div class="random-demo" aria-label="Voorbeeld van willekeurige JavaScript-data">
+                            <span>Willekeurige kaart</span>
+                            <strong data-random-result>Student 1</strong>
+                            <button type="button" data-random-button>Nieuwe keuze</button>
+                        </div>
+
+                        <pre class="code-example"><code>const i = Math.floor(
+    Math.random() * (n + 1)
+);</code></pre>
+
+                        <p>Dit stukje code kiest een willekeurig getal binnen een bereik, waardoor ik dynamische content kon tonen in plaats van steeds dezelfde informatie weer te geven.</p>
+                    </li>
+                </ul>
+            </article>
+
+            <article>
+                <h2>Feedback</h2>
+                <p></p>
+            </article>
+
+            <article>
+                <h2>Reflectie</h2>
+                <p></p>
+            </article>
+
+            <article class="eindresultaat">
                 <h2>Eindresultaat</h2>
                 <a href="https://jeancarlos-de-leon-vitiello.github.io/webdesign-opdracht1/">Eindresultaat</a>
                 <a href="https://github.com/JeanCarlos-De-Leon-Vitiello/webdesign-opdracht1">GitHub Repository</a>
+            </article>
         </section>
     </main>
 

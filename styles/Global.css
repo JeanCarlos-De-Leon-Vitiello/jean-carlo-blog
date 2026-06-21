@@ -22,7 +22,6 @@ body {
     /* Colors */
     --primairy-color: #000;
     --secondary-color: #fff;
-    --text-color: ;
     --accent-color: #d88c3a;
     --accent-soft-color: #f2dcc3;
     --card-surface-color: #1f1a14;
@@ -41,8 +40,15 @@ body {
     
     /* Spacing */
     --section-spacing: 0 5vw;
-    --content-max-with: 72rem;
     --content-padding: 5rem clamp(1rem, 5vw, 5rem);
+}
+
+html:has(.theme-checkbox:checked) {
+    --primairy-color: #f7f1e8;
+    --secondary-color: #111;
+    --accent-color: #b76521;
+    --accent-soft-color: #4b2a12;
+    --card-surface-color: #fffaf3;
 }
 
 
@@ -97,7 +103,6 @@ header nav{
             list-style: none;
             font-family: var(--font-primary);
             font-size: 1.2rem;
-            color: var(--text-color);
             cursor: pointer;
         }
     }
@@ -147,6 +152,52 @@ header nav{
         padding: 0.35rem 0;
         color: var(--primairy-color);
         white-space: nowrap;
+    }
+
+    .theme-checkbox {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.5rem;
+        padding: 0.55rem 0.8rem;
+        border: 1px solid var(--secondary-color);
+        border-radius: 0.5rem;
+        color: var(--secondary-color);
+        font-family: var(--font-primary);
+        font-size: 1.1rem;
+        line-height: 1;
+        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .theme-label-light {
+        display: none;
+    }
+
+    .theme-checkbox:checked + .theme-toggle .theme-label-dark {
+        display: none;
+    }
+
+    .theme-checkbox:checked + .theme-toggle .theme-label-light {
+        display: inline;
+    }
+
+    .theme-checkbox:focus-visible + .theme-toggle {
+        outline: 2px solid var(--accent-soft-color);
+        outline-offset: 3px;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+        background-color: var(--secondary-color);
+        color: var(--primairy-color);
     }
 
     .hamburger {
@@ -201,37 +252,6 @@ header nav{
 
 
 
-    /* cards */
-    .cards {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        color: var(--secondary-color);
-        padding: 5rem 0;
-        margin: var(--section-spacing);
-
-        h2 {
-            width: 100%;
-            font-family: var(--font-primary);
-            font-size: var(--font-size-h2);
-        }
-
-        >div {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: calc((100% - 4rem) / 3);
-            min-height: 18rem;
-            padding: 2rem;
-            border: 1px solid var(--secondary-color);
-            border-radius: 0.75rem;
-        }
-
-        h3 {
-            font-family: var(--font-primary);
-            font-size: var(--font-size-h3);
-        }
-    }
 
 
 
@@ -322,6 +342,11 @@ footer {
         transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.35s ease;
     }
 
+    header nav .theme-toggle {
+        position: relative;
+        z-index: 2;
+    }
+
     header nav .nav-dropdown {
         display: flex;
         flex-direction: column;
@@ -360,6 +385,17 @@ footer {
 
         .hamburger span {
             background-color: var(--primairy-color);
+        }
+
+        .theme-toggle {
+            border-color: var(--primairy-color);
+            color: var(--primairy-color);
+        }
+
+        .theme-toggle:hover,
+        .theme-toggle:focus-visible {
+            background-color: var(--primairy-color);
+            color: var(--secondary-color);
         }
 
         .hamburger {

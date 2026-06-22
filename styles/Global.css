@@ -266,7 +266,7 @@ header nav{
 /* footer code */
 footer {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
     gap: 3rem;
     padding: 4rem 5vw 2rem;
     color: var(--secondary-color);
@@ -287,20 +287,6 @@ footer {
         font-family: var(--secondairy-font);
         font-size: clamp(0.9rem, 1.5vw, 1rem);
         line-height: 1.6;
-    }
-
-    nav {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        align-items: flex-end;
-    }
-
-    a {
-        color: inherit;
-        font-family: var(--font-primary);
-        font-size: clamp(1.1rem, 2vw, 1.4rem);
-        text-decoration: none;
     }
 
     >p {
@@ -429,13 +415,6 @@ footer {
         }
     }
 
-    footer {
-        grid-template-columns: 1fr;
-
-        nav {
-            align-items: flex-start;
-        }
-    }
 }
 
 /* classes */

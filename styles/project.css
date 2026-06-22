@@ -19,6 +19,21 @@ main > section:not(.hero-section) {
     line-height: 1;
 }
 
+.project-content article > h3 {
+    margin-top: 1.5rem;
+    color: var(--accent-soft-color);
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1;
+}
+
+.project-content article > h4 {
+    color: var(--accent-soft-color);
+    font-family: var(--font-primary);
+    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+    line-height: 1;
+}
+
 .project-intro p,
 .project-goals p,
 .project-content p,
@@ -36,6 +51,12 @@ main > section:not(.hero-section) {
 .team-container {
     display: grid;
     gap: 1rem;
+}
+
+.role-container {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 48rem;
 }
 
 .team {
@@ -142,6 +163,12 @@ main > section:not(.hero-section) {
     list-style: none;
 }
 
+.project-content .challenge-list {
+    display: grid;
+    gap: 1.5rem;
+    list-style: none;
+}
+
 .project-content .insight-list li {
     display: grid;
     gap: 1rem;
@@ -152,10 +179,47 @@ main > section:not(.hero-section) {
     background-color: var(--card-surface-color);
 }
 
-.project-content .insight-list h3 {
+.project-content .challenge-list li {
+    display: grid;
+    gap: 1rem;
+}
+
+.project-content .challenge-list li > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.project-content .challenge-list section {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid var(--accent-color);
+    border-top: 0.35rem solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--card-surface-color);
+}
+
+.project-content .challenge-list .challenge-problem {
+    border-top-color: #e85d5d;
+}
+
+.project-content .challenge-list .challenge-solution {
+    border-top-color: #5bbf72;
+}
+
+.project-content .insight-list h3,
+.project-content .challenge-list h3 {
     color: var(--accent-soft-color);
     font-family: var(--font-primary);
     font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1;
+}
+
+.project-content .challenge-list h4 {
+    color: var(--accent-soft-color);
+    font-family: var(--font-primary);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     line-height: 1;
 }
 
@@ -210,7 +274,8 @@ main > section:not(.hero-section) {
 
 @media (max-width: 900px) {
     .project-goals .leerdoelen,
-    .project-content .insight-list {
+    .project-content .insight-list,
+    .project-content .challenge-list li > div {
         grid-template-columns: 1fr;
     }
 

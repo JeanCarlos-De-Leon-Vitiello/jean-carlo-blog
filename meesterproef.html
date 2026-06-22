@@ -59,6 +59,21 @@
             </div>
 
             <div>
+                <div class="team-container">
+                    <h2>Het team</h2>
+                    <ul class="team">
+                        <li>Jean-Carlo</li>
+                        <li>Mathew</li>
+                        <li>Jelle</li>
+                        <li>Joshua</li>
+                    </ul>
+                </div>
+
+                <div class="role-container">
+                    <h2>Mijn rol</h2>
+                    <p>Binnen het project was ik verantwoordelijk voor de ontwikkeling van de interactieve kaart en de koppeling tussen verschillende onderdelen van de applicatie. Ik heb de basisstructuur van de Leaflet-kaart opgezet, inclusief toegankelijkheidsverbeteringen en kaartconfiguraties. Daarnaast heb ik de filterfunctionaliteit in de sidebar ontwikkeld, waarbij gebruikers via een filtercascade relevante subcategorieën kunnen selecteren. Ook heb ik de communicatie tussen de sidebar en de kaart gerealiseerd met behulp van custom events, zodat filters dynamisch kaartlagen kunnen tonen, verbergen en resetten. Ook heb ik gewerkt aan de list-view, waarin dezelfde locaties als op de kaart toegankelijk worden weergegeven.</p>
+                </div>
+
                 <h2>Leerdoelen</h2>
                 <ul class="leerdoelen">
                     <li>
@@ -106,24 +121,136 @@
 
         <section class="project-content">
             <article>
-                <h2>Feedback</h2>
-                <p></p>
+                <h2>Uitdagingen</h2>
+                <ul class="challenge-list">
+                    <li>
+                        <h3>Werken met GitHub en branches</h3>
+                        <div>
+                            <section class="challenge-problem">
+                                <h4>Probleem</h4>
+                                <p>Tijdens het project werkte iedereen aan zijn eigen onderdeel van de website. Hierdoor was het soms lastig om alle wijzigingen goed samen te voegen. Er was een risico dat code van teamgenoten elkaar zou overschrijven of dat er fouten zouden ontstaan bij het samenvoegen.</p>
+                            </section>
+
+                            <section class="challenge-solution">
+                                <h4>Oplossing</h4>
+                                <p>Om dit probleem te voorkomen werkte iedereen in een eigen branch binnen GitHub. Ik werkte eerst mijn taken uit in mijn eigen branch en voegde deze daarna samen met de DEV branch. Ook controleerde ik regelmatig of er nieuwe wijzigingen van mijn teamgenoten waren, zodat mijn code altijd up-to-date bleef. Hierdoor verliep het samenwerken een stuk makkelijker.</p>
+                            </section>
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Op een lijn blijven binnen het project</h3>
+                        <div>
+                            <section class="challenge-problem">
+                                <h4>Probleem</h4>
+                                <p>Tijdens het project had iedereen zijn eigen idee&euml;n over hoe bepaalde onderdelen gemaakt moesten worden. Hierdoor kon soms onduidelijkheid ontstaan over de planning of de aanpak van een opdracht.</p>
+                            </section>
+
+                            <section class="challenge-solution">
+                                <h4>Oplossing</h4>
+                                <p>Om ervoor te zorgen dat iedereen op een lijn bleef, hadden we regelmatig overleg. Tijdens deze momenten bespraken we onze voortgang, de taken die nog gedaan moesten worden en eventuele problemen. Ook hielden we elkaar via GitHub en berichten op de hoogte van wijzigingen. Hierdoor wist iedereen waar de rest van het team mee bezig was en konden we goed samenwerken.</p>
+                            </section>
+                        </div>
+                    </li>
+                </ul>
             </article>
 
             <article>
                 <h2>Nieuwe inzichten</h2>
-                <p></p>
+                <ul class="insight-list">
+                    <li>
+                        <h3>Werken met custom events</h3>
+                        <p>Tijdens dit project heb ik geleerd hoe verschillende onderdelen van een website met elkaar kunnen communiceren zonder direct aan elkaar gekoppeld te zijn. Hiervoor heb ik custom events gebruikt. Wanneer een gebruiker een filter selecteert in de sidebar, wordt er een event verstuurd naar de kaart.</p>
+
+                        <pre class="code-example"><code>window.dispatchEvent(
+    new CustomEvent("filter:show", {
+        detail: { name: newFilter }
+    })
+);</code></pre>
+
+                        <p>Door dit te gebruiken blijft de code overzichtelijk en is het makkelijker om later nieuwe functies toe te voegen.</p>
+                    </li>
+
+                    <li>
+                        <h3>Dynamische filters maken</h3>
+                        <p>Ik heb geleerd hoe ik een formulier kan aanpassen op basis van keuzes van de gebruiker. Als een gebruiker een hoofdcategorie kiest, worden alleen de bijpassende subcategorie&euml;n getoond.</p>
+
+                        <pre class="code-example"><code>subOptions.forEach((option) =&gt; {
+    if (option.dataset.parent === gekozenHoofdCategorie) {
+        subSelect.appendChild(option);
+    }
+});</code></pre>
+
+                        <p>Hierdoor wordt de website gebruiksvriendelijker en krijgt de gebruiker alleen relevante opties te zien.</p>
+                    </li>
+
+                    <li>
+                        <h3>Toegankelijkheid verbeteren</h3>
+                        <p>Tijdens het maken van de kaart heb ik geleerd hoe ik een website toegankelijker kan maken voor mensen die een screenreader gebruiken. Dit heb ik gedaan met behulp van ARIA-labels.</p>
+
+                        <pre class="code-example"><code>&lt;div
+    id="map"
+    role="region"
+    aria-label="Interactieve kaart van Amsterdam"&gt;
+&lt;/div&gt;</code></pre>
+
+                        <p>Door deze labels toe te voegen krijgen gebruikers van een screenreader meer informatie over de inhoud van de pagina.</p>
+                    </li>
+
+                    <li>
+                        <h3>Werken met de Leaflet-library</h3>
+                        <p>Ik heb geleerd hoe ik een externe library, zoals Leaflet, kan gebruiken om een interactieve kaart te maken. Ook heb ik instellingen toegevoegd zodat gebruikers niet buiten Amsterdam kunnen navigeren.</p>
+
+                        <pre class="code-example"><code>const map = L.map("map", {
+    maxBounds: amsterdamBounds,
+    maxBoundsViscosity: 1.0,
+});</code></pre>
+
+                        <p>Hierdoor heb ik meer ervaring opgedaan met het lezen van documentatie en het gebruiken van externe tools binnen een project.</p>
+                    </li>
+
+                    <li>
+                        <h3>Werken met dispatchEvent()</h3>
+                        <p>Tijdens dit project heb ik geleerd hoe ik met dispatchEvent() een gebeurtenis kan versturen naar andere onderdelen van de applicatie. Hierdoor kunnen componenten informatie met elkaar delen zonder direct met elkaar verbonden te zijn.</p>
+
+                        <pre class="code-example"><code>window.dispatchEvent(
+    new CustomEvent("filter:hideAll")
+);</code></pre>
+
+                        <p>Met deze code wordt een event verstuurd waarmee alle actieve filters kunnen worden uitgezet. Ik heb geleerd dat dit een handige manier is om acties tussen verschillende onderdelen van een applicatie te laten samenwerken. Hierdoor blijft de code overzichtelijk en makkelijker te onderhouden.</p>
+                    </li>
+                </ul>
             </article>
 
             <article>
                 <h2>Reflectie</h2>
-                <p></p>
+                <p>Tijdens dit project heb ik veel geleerd over het bouwen van een interactieve webapplicatie. Wat ik lastig vond, was het laten samenwerken van verschillende componenten, zoals de sidebar en de kaart. Vooral het werken met custom events was in het begin even wennen, omdat ik deze techniek nog niet eerder had gebruikt. Ook het gebruiken van dispatchEvent() was nieuw voor mij.</p>
+
+                <p>Wat goed ging, was het ontwikkelen van de kaart, de filters en de list-view. Ook vond ik het leuk om samen te werken via GitHub. Voor het eerst heb ik gewerkt met branches, pull requests en een code review uitgevoerd. Hierdoor heb ik beter geleerd hoe ontwikkelaars samenwerken aan een project.</p>
+
+                <p>Wat ik zeker meeneem naar toekomstige projecten, is het werken met GitHub, het uitvoeren van code reviews en het gebruik van custom events om componenten met elkaar te laten communiceren. Daarnaast neem ik mee hoe belangrijk het is om toegankelijkheid tijdens het ontwikkelen van een website direct mee te nemen.</p>
+
+                <p>Tijdens het testen met Berend benadrukte hij hoe goed hij onze webapp kon gebruiken, omdat deze al heel toegankelijk was. Dat liet mij zien dat toegankelijkheid niet iets is wat je pas achteraf toevoegt, maar iets wat vanaf het begin invloed heeft op hoe bruikbaar een project is.</p>
+
+                <h3>Evaluatie van mijn leerdoelen</h3>
+
+                <h4>Plannen en inschatten van werkzaamheden</h4>
+                <p>Hier heb ik hard aan gewerkt. Tijdens de meesterproef heb ik taken opgepakt en verdeeld over verschillende weken. Voordat we begonnen met werken hebben we gezamenlijk de taken van die week besproken en verdeeld tussen de teamleden. Dit hebben we in onze Notion bijgehouden, waar we ook een agenda bijhielden voor onze afspraken met onze coach en opdrachtgever. Bij andere projecten hield ik mij niet echt aan een planning of agenda, waardoor ik vaak in tijdsnood kwam. Ik heb echt vooruitgang geboekt bij dit leerdoel.</p>
+
+                <h4>Mijn JavaScript-vaardigheden verder ontwikkelen</h4>
+                <p>Hier heb ik goed aan gewerkt. Tijdens dit project heb ik nieuwe technieken gebruikt die ik eerder nog niet of nauwelijks had toegepast, zoals custom events, dispatchEvent(), DOM-manipulatie, dataset-attributen, dynamische filters en de communicatie tussen verschillende componenten. Hierdoor heb ik meer vertrouwen gekregen in het bouwen van interactieve functionaliteiten met JavaScript en heb ik meer over de mogelijkheden met JavaScript geleerd.</p>
+
+                <h4>Beter leren werken met GitHub branches en code conventions</h4>
+                <p>Hier heb ik goed aan gewerkt. Tijdens dit project heb ik gewerkt met branches en pull requests binnen GitHub. Ook heb ik voor het eerst een code review uitgevoerd op de code van groepsgenoten. Hierdoor heb ik geleerd hoe belangrijk het is om code te controleren voordat deze wordt samengevoegd met de hoofdbranch. Daarnaast heb ik meer ervaring opgedaan met samenwerken aan dezelfde repository zonder elkaars werk te overschrijven door branches te maken voor elke feature die wordt gemaakt.</p>
+
+                <h4>Conclusie</h4>
+                <p>Dit project heeft mij geholpen om zowel technisch als op het gebied van samenwerken te groeien. Vooral op het gebied van JavaScript en GitHub heb ik veel nieuwe ervaring opgedaan. Deze kennis en vaardigheden neem ik mee naar toekomstige projecten.</p>
             </article>
 
             <article class="eindresultaat">
                 <h2>Eindresultaat</h2>
-                <a href="">Eindresultaat</a>
-                <a href="">GitHub Repository</a>
+                <a href="https://meesterproef-minor-web-cxvh.onrender.com/">Eindresultaat</a>
+                <a href="https://github.com/Jawattimena/meesterproef-minor-web">GitHub Repository</a>
             </article>
         </section>
     </main>
@@ -133,18 +260,6 @@
             <h2>Jean-Carlo's<br>Web design & Dev</h2>
             <p>Learning, building, and documenting my growth during the Web Design and Development minor.</p>
         </div>
-
-        <nav aria-label="Footer navigation">
-            <a href="index.html">Home</a>
-            <a href="sprint0.html">Sprint 0</a>
-            <a href="hackathon.html">Hackathon</a>
-            <a href="weeklynerd.html">Weekly Nerd</a>
-            <a href="css-to-the-rescue.html">CSS to the Rescue</a>
-            <a href="browser-tech.html">Browser Tech</a>
-            <a href="hcd.html">HCD</a>
-            <a href="api.html">API</a>
-            <a href="meesterproef.html">Meesterproef</a>
-        </nav>
 
         <p>© 2026 Jean-Carlo. All rights reserved.</p>
     </footer>

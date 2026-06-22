@@ -6,13 +6,36 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 1rem;
+        padding: 0 5vw;
 
         h1 {
             font-family: var(--font-primary);
-            font-size: 8rem;
+            font-size: var(--font-size-h1);
             color: var(--secondary-color);
             text-align: center;
-            line-height: 110px;
+            line-height: 0.9;
+        }
+
+        p {
+            max-width: 42rem;
+            font-family: var(--secondairy-font);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        p:first-of-type {
+            color: var(--accent-soft-color);
+            font-family: var(--font-primary);
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        p:last-of-type {
+            color: var(--secondary-color);
+            opacity: 0.85;
         }
     }
 }

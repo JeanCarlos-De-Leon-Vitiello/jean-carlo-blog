@@ -111,6 +111,10 @@ main > section:nth-of-type(2) > div:nth-child(2) {
     gap: 1rem;
 }
 
+.sprint0-content .reflectie {
+    max-width: 48rem;
+}
+
 .sprint0-content p {
     min-height: 1.5rem;
     font-size: clamp(1.05rem, 1.7vw, 1.25rem);

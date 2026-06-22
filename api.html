@@ -49,35 +49,128 @@
         <section class="project-intro">
             <div>
                 <h2>De opdracht</h2>
-                <p></p>
+                <p>Tijdens het vak API was het de opdracht om een webapplicatie te maken die gebruikmaakt van minimaal &eacute;&eacute;n Content API en twee Web API. Het doel van de opdracht was om te leren hoe externe data kan worden opgehaald, verwerkt en getoond binnen een webapplicatie.</p>
+
+                <p>Voor deze opdracht heb ik een movie website gemaakt waarbij gebruikers op basis van hun mood een film kunnen ontdekken. Hiervoor heb ik de TMDB API gebruikt als Content API. Op basis van een gekozen mood wordt een passend genre geselecteerd, waarna er een willekeurige film uit dat genre wordt opgehaald.</p>
+
+                <p>Naast de Content API heb ik verschillende Web API's toegepast, waaronder Astro View Transitions en de Web Animations API. Met View Transitions heb ik vloeiende overgangen gemaakt tussen castkaarten en detailpagina's. Met de Web Animations API heb ik een interactieve cast carousel gemaakt waarbij de middelste kaart automatisch meer nadruk krijgt door middel van schaal en diepte.</p>
             </div>
         </section>
 
-        <section class="project-content">
-            <article>
-                <h2>Code highlights</h2>
-                <p></p>
-            </article>
+        <span class="border"></span>
 
-            <article>
-                <h2>Feedback</h2>
-                <p></p>
-            </article>
+        <section class="project-content">
 
             <article>
                 <h2>Nieuwe inzichten</h2>
-                <p></p>
+                <ul class="insight-list">
+                    <li>
+                        <h3>API keys veilig houden met server-side fetches</h3>
+                        <p>Tijdens dit project heb ik geleerd waarom het belangrijk is om API keys niet in de browser te gebruiken. Eerst wilde ik de gekozen mood opslaan in localStorage en vanuit de browser een fetch uitvoeren, maar daardoor zou mijn API key zichtbaar kunnen worden.</p>
+
+                        <pre class="code-example"><code>const mood = Astro.url.searchParams.get("mood");</code></pre>
+
+                        <p>Door de mood via de URL door te geven en de fetch server-side uit te voeren, bleef mijn API key veilig. Hierdoor begrijp ik beter wanneer data server-side of client-side verwerkt moet worden.</p>
+                    </li>
+
+                    <li>
+                        <h3>Dynamische pagina's maken met URL-parameters</h3>
+                        <p>Ik heb geleerd hoe ik informatie via de URL kan doorgeven en later opnieuw kan gebruiken.</p>
+
+                        <pre class="code-example"><code>const actorId =
+    Astro.url.searchParams.get("id");</code></pre>
+
+                        <p>Hiermee kon ik vanaf een castkaart naar een detailpagina navigeren en op basis van de actor-id nieuwe gegevens ophalen uit de TMDB API. Hierdoor begrijp ik beter hoe dynamische websites werken.</p>
+                    </li>
+
+                    <li>
+                        <h3>Herbruikbare componenten maken</h3>
+                        <p>Tijdens dit project heb ik geleerd hoe componenten helpen om code overzichtelijk en herbruikbaar te houden.</p>
+
+                        <pre class="code-example"><code>&lt;Cast
+    name={cast.name}
+    image={cast.profile_path}
+    role={cast.character}
+/&gt;</code></pre>
+
+                        <p>Door een aparte Cast-component te maken hoefde ik dezelfde HTML niet steeds opnieuw te schrijven. Hierdoor werd mijn code overzichtelijker en makkelijker te onderhouden.</p>
+                    </li>
+
+                    <li>
+                        <h3>Astro View Transitions gebruiken</h3>
+                        <p>Ik heb geleerd hoe Astro View Transitions werken tussen twee pagina's.</p>
+
+                        <pre class="code-example"><code>&lt;img
+    transition:name={`cast${cast.id}`}
+/&gt;</code></pre>
+
+                        <p>Door dezelfde transition op meerdere pagina's te gebruiken kon Astro herkennen welke elementen bij elkaar horen. Hierdoor ontstond een vloeiende overgang tussen een castkaart en de detailpagina van een acteur.</p>
+                    </li>
+
+                    <li>
+                        <h3>Werken met de Web Animations API</h3>
+                        <p>Tijdens dit project heb ik voor het eerst gewerkt met de Web Animations API.</p>
+
+                        <pre class="code-example"><code>card.animate(
+    [
+        {
+            transform:
+                `scale(${scale}) translateZ(${depth}px)`
+        }
+    ],
+    {
+        duration: 200,
+        fill: "forwards"
+    }
+);</code></pre>
+
+                        <p>Hiermee kon ik castkaarten animeren op basis van hun positie binnen een carousel. Hierdoor heb ik geleerd hoe JavaScript gebruikt kan worden om dynamische animaties te maken op basis van gebruikersinteractie.</p>
+                    </li>
+
+                    <li>
+                        <h3>Het midden van een carousel berekenen</h3>
+                        <p>Voor de carousel moest ik bepalen welke kaart zich het dichtst bij het midden bevond.</p>
+
+                        <pre class="code-example"><code>const distance =
+    Math.abs(
+        carouselCenter -
+        cardCenter
+    );</code></pre>
+
+                        <p>Hierdoor heb ik geleerd wat scrollLeft, offsetWidth en offsetLeft doen en hoe je deze waardes kunt combineren om de positie van elementen te berekenen.</p>
+                    </li>
+
+                    <li>
+                        <h3>Kleine fouten kunnen grote gevolgen hebben</h3>
+                        <p>Tijdens het project liep ik tegen een fout aan bij het kiezen van een willekeurige film.</p>
+
+                        <pre class="code-example"><code>Math.floor(
+    Math.random() *
+    data.results.length
+);</code></pre>
+
+                        <p>Eerst gebruikte ik -1, waardoor er soms een ongeldige index ontstond en mijn applicatie fouten gaf. Hierdoor heb ik geleerd hoe belangrijk het is om berekeningen goed te begrijpen voordat je ze toepast.</p>
+                    </li>
+                </ul>
             </article>
 
-            <article>
+            <article class="reflectie">
                 <h2>Reflectie</h2>
-                <p></p>
+                <p>Tijdens het vak API heb ik veel geleerd over het werken met data en Web API's. Voor deze opdracht heb ik een movie website gemaakt die op basis van de mood van een gebruiker een passende film aanbeveelt. Hiervoor heb ik gewerkt met de TMDB API, Astro View Transitions en de Web Animations API.</p>
+
+                <p>Wat ik lastig vond, was het begrijpen wanneer code server-side of client-side uitgevoerd moet worden. In het begin wilde ik localStorage gebruiken om de mood door te geven, maar ik ontdekte dat dit niet de beste oplossing was omdat ik mijn API key veilig wilde houden. Uiteindelijk heb ik geleerd hoe ik URL-parameters kan gebruiken en hoe ik server-side fetches kan uitvoeren.</p>
+
+                <p>Wat goed ging, was het werken met componenten en het ophalen van data uit verschillende API-endpoints. Ik heb een castoverzicht gemaakt, detailpagina's voor acteurs gebouwd en geleerd hoe ik data via URL-parameters kan doorgeven. Ook ben ik tevreden met de View Transitions tussen de castkaarten en de detailpagina's, omdat deze de website prettiger maken om te gebruiken.</p>
+
+                <p>Een van de leukste onderdelen vond ik het werken met de Web Animations API. Het was interessant om uit te zoeken hoe ik kon berekenen welke kaart zich in het midden van de carousel bevindt en hoe ik die kaart groter en meer naar voren kon laten komen. Hierdoor heb ik beter leren werken met JavaScript-berekeningen zoals Math.abs(), Math.min(), scrollLeft, offsetWidth en offsetLeft.</p>
+
+                <p>Wat ik zeker meeneem naar toekomstige projecten is het werken met API's, componenten en dynamische data. Daarnaast heb ik geleerd hoe belangrijk het is om na te denken over veiligheid, bijvoorbeeld door API keys niet in de browser te gebruiken. Ook neem ik mijn kennis over View Transitions en de Web Animations API mee, omdat deze technieken veel mogelijkheden bieden om websites interactiever te maken.</p>
             </article>
 
             <article class="eindresultaat">
                 <h2>Eindresultaat</h2>
-                <a href="">Eindresultaat</a>
-                <a href="">GitHub Repository</a>
+                <a href="https://api-eindopdracht-jc.onrender.com/">Eindresultaat</a>
+                <a href="https://github.com/JeanCarlos-De-Leon-Vitiello/API-eindopdracht">GitHub Repository</a>
             </article>
         </section>
     </main>

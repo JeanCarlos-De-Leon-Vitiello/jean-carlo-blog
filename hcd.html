@@ -49,30 +49,111 @@
         <section class="project-intro">
             <div>
                 <h2>De opdracht</h2>
-                <p></p>
+                <p>Tijdens het vak Human Centered Design (HCD) was het de opdracht om een digitaal product te ontwerpen voor een specifieke gebruiker met een beperking. Het doel van de opdracht was om niet voor een algemene doelgroep te ontwerpen, maar juist uit te gaan van de behoeften, wensen en uitdagingen van &eacute;&eacute;n persoon. Hierbij stonden de Exclusive Design Principles centraal.</p>
+
+                <p>Voor deze opdracht heb ik ontworpen voor Berend, die blind is en websites navigeert met behulp van een screenreader en toetsenbord. Door meerdere keren met hem te testen en gesprekken te voeren heb ik onderzocht hoe hij websites gebruikt en waar hij tegenaan loopt tijdens het navigeren.</p>
+
+                <p>Op basis van deze bevindingen heb ik een prototype gemaakt van een nieuwssite met extra toegankelijkheidsfuncties. Hierbij heb ik functies ontwikkeld zoals het opslaan van een startpositie op een pagina, sneltoetsen voor navigatie, bookmarks voor artikelen en directe feedback voor screenreaders. Het doel van deze functies was om de navigatie sneller, duidelijker en prettiger te maken voor Berend.</p>
             </div>
         </section>
 
         <section class="project-content">
             <article>
-                <h2>Feedback</h2>
-                <p></p>
-            </article>
-
-            <article>
                 <h2>Nieuwe inzichten</h2>
-                <p></p>
+                <ul class="insight-list">
+                    <li>
+                        <h3>Testen met een echte gebruiker is belangrijker dan aannames maken</h3>
+                        <p>Tijdens dit project heb ik geleerd dat wat ik zelf een goede oplossing vind, niet altijd aansluit bij de behoeften van de gebruiker. Door meerdere keren met Berend te testen ontdekte ik dat sommige idee&euml;n minder nuttig waren dan ik dacht. Zo leek het aanpassen van de tekstgrootte mij een handige functie, maar uit de tests bleek dat dit voor hem weinig toevoegde.</p>
+
+                        <p>Door direct met de gebruiker te testen kon ik mijn ontwerp verbeteren op basis van echte feedback in plaats van aannames. Hierdoor begreep ik beter waarom gebruikersonderzoek zo belangrijk is binnen Human Centered Design.</p>
+                    </li>
+
+                    <li>
+                        <h3>Focus beheren met localStorage</h3>
+                        <p>Tijdens dit project heb ik geleerd hoe ik een gekozen startpositie op een website kan opslaan en later weer kan terugzetten.</p>
+
+                        <pre class="code-example"><code>const activeElement = document.activeElement;
+
+localStorage.setItem(
+    "startPositieKey",
+    activeElement.id
+);</code></pre>
+
+                        <p>Hierdoor kan een gebruiker direct beginnen op een plek die voor hem belangrijk is. Ik heb geleerd dat navigatie voor screenreadergebruikers veel tijd kost en dat kleine verbeteringen hierin een groot verschil kunnen maken.</p>
+                    </li>
+
+                    <li>
+                        <h3>Werken met sneltoetsen voor toegankelijkheid</h3>
+                        <p>Ik heb geleerd hoe ik met JavaScript sneltoetsen kan maken waarmee gebruikers sneller door een website kunnen navigeren.</p>
+
+                        <pre class="code-example"><code>document.addEventListener(
+    "keydown",
+    (event) =&gt; {
+        if (event.key === "s") {
+            saveArticle();
+        }
+    }
+);</code></pre>
+
+                        <p>Tijdens het testen ontdekte ik dat sneltoetsen niet alleen logisch moeten zijn, maar ook niet mogen botsen met de sneltoetsen van een screenreader. Hierdoor ben ik meer gaan nadenken over hoe verschillende hulpmiddelen samenwerken.</p>
+                    </li>
+
+                    <li>
+                        <h3>Feedback geven aan screenreadergebruikers met aria-live</h3>
+                        <p>Een belangrijk inzicht was dat gebruikers van screenreaders directe feedback nodig hebben wanneer ze een actie uitvoeren.</p>
+
+                        <pre class="code-example"><code>&lt;div aria-live="polite"&gt;&lt;/div&gt;</code></pre>
+
+                        <p>Wanneer een gebruiker bijvoorbeeld een artikel opslaat of verwijdert, wordt deze melding direct voorgelezen door de screenreader. Hierdoor heb ik geleerd dat feedback niet alleen visueel hoeft te zijn, maar ook auditief beschikbaar moet zijn.</p>
+                    </li>
+
+                    <li>
+                        <h3>Toegankelijkheid gaat verder dan alleen de focus verplaatsen</h3>
+                        <p>Aan het begin van het project dacht ik dat het voldoende was om de focus terug te zetten naar een opgeslagen element.</p>
+
+                        <pre class="code-example"><code>element.focus();</code></pre>
+
+                        <p>Tijdens het testen ontdekte ik dat de gebruiker daarna niet altijd logisch verder kon navigeren. Hierdoor heb ik geleerd dat toegankelijkheid niet alleen gaat over waar de focus staat, maar ook over de volledige gebruikerservaring daarna. De tabvolgorde en verwachtingen van de gebruiker zijn minstens zo belangrijk.</p>
+                    </li>
+
+                    <li>
+                        <h3>Werken met de Exclusive Design Principles</h3>
+                        <p>Tijdens dit project heb ik geleerd hoe de Exclusive Design Principles kunnen helpen bij het ontwerpen voor een specifieke gebruiker.</p>
+
+                        <h4>Study Situation</h4>
+                        <p>Ik heb meerdere keren getest met Berend om te begrijpen hoe hij websites gebruikt en waar hij tegenaan loopt. Hierdoor baseerde ik mijn keuzes op zijn situatie in plaats van op aannames.</p>
+
+                        <h4>Ignore Conventions</h4>
+                        <p>Ik heb niet automatisch gekozen voor standaard oplossingen. In plaats daarvan heb ik gekeken welke manier van navigeren het beste werkte voor Berend, zoals het gebruik van sneltoetsen en een hulppaneel dat direct toegankelijk is.</p>
+
+                        <h4>Prioritise Identity</h4>
+                        <p>De persoonlijke voorkeuren van Berend stonden centraal tijdens het project. Functies zoals bookmarks, startposities en screenreaderfeedback zijn ontwikkeld op basis van zijn manier van werken.</p>
+
+                        <h4>Add Nonsense</h4>
+                        <p>Ik heb ge&euml;xperimenteerd met idee&euml;n die in eerste instantie misschien niet noodzakelijk leken, zoals geluid afspelen bij het opslaan van een artikel. Tijdens het testen bleek dit juist een waardevolle toevoeging te zijn.</p>
+
+                        <p>Door deze principes toe te passen heb ik geleerd dat een ontwerp vaak beter wordt wanneer je eerst kijkt naar de behoeften van een specifieke gebruiker en pas daarna naar algemene oplossingen.</p>
+                    </li>
+                </ul>
             </article>
 
-            <article>
+            <article class="reflectie">
                 <h2>Reflectie</h2>
-                <p></p>
+                <p>Tijdens Human Centered Design heb ik geleerd hoe belangrijk het is om een product te ontwerpen vanuit de behoeften van een echte gebruiker. In dit project heb ik ontworpen voor Berend, die blind is en websites gebruikt met een screenreader. Door meerdere keren met hem te testen kreeg ik steeds meer inzicht in hoe hij websites navigeert en welke problemen hij daarbij ervaart.</p>
+
+                <p>Wat ik lastig vond, was dat ik soms dacht een goede oplossing te hebben, terwijl dit tijdens het testen toch niet altijd bleek te werken. Een voorbeeld hiervan was het terugzetten van de focus naar een opgeslagen positie. Technisch werkte dit, maar tijdens het testen ontdekte ik dat de navigatie daarna niet altijd logisch verderging. Hierdoor heb ik geleerd dat toegankelijkheid niet alleen gaat over techniek, maar vooral over de ervaring van de gebruiker.</p>
+
+                <p>Wat goed ging, was het verwerken van feedback uit de tests. Na iedere test heb ik mijn prototype aangepast en verbeterd. Hierdoor zijn functies zoals het opslaan van een startpositie, het toevoegen van bookmarks en de screenreaderfeedback steeds beter geworden. Ik ben vooral tevreden over de feedbackmeldingen met aria-live, omdat deze direct aansluiten op de manier waarop Berend websites gebruikt.</p>
+
+                <p>Een belangrijk leerpunt voor mij was dat ik minder moest uitgaan van mijn eigen idee&euml;n en meer moest luisteren naar de gebruiker. Door de testen ontdekte ik bijvoorbeeld dat sommige functies die ik zelf handig vond, voor Berend weinig waarde hadden, zoals het aanpassen van tekstgrootte.</p>
+
+                <p>Wat ik zeker meeneem naar toekomstige projecten is hoe belangrijk het is om gebruikerstesten te doen. Ik heb geleerd dat je veel kunt bedenken achter een computer, maar dat je pas echt weet of iets werkt wanneer je het test met de gebruiker waarvoor je ontwerpt. Daarnaast neem ik mijn kennis over toegankelijkheid, screenreaders, toetsenbordnavigatie en de Exclusive Design Principles mee naar toekomstige projecten.</p>
             </article>
 
             <article class="eindresultaat">
                 <h2>Eindresultaat</h2>
-                <a href="">Eindresultaat</a>
-                <a href="">GitHub Repository</a>
+                <a href="https://jeancarlos-de-leon-vitiello.github.io/HCD-opdracht/">Eindresultaat</a>
+                <a href="https://github.com/JeanCarlos-De-Leon-Vitiello/HCD-opdracht">GitHub Repository</a>
             </article>
         </section>
     </main>

@@ -30,7 +30,7 @@ main > section:not(.hero-section) {
 .project-content article > h4 {
     color: var(--accent-soft-color);
     font-family: var(--font-primary);
-    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+    font-size: var(--font-size-h4);
     line-height: 1;
 }
 
@@ -165,6 +165,10 @@ main > section:not(.hero-section) {
     gap: 1rem;
 }
 
+.project-content .reflectie {
+    max-width: 48rem;
+}
+
 .project-content .insight-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -180,6 +184,7 @@ main > section:not(.hero-section) {
 
 .project-content .insight-list li {
     display: grid;
+    align-content: start;
     gap: 1rem;
     padding: 1.5rem;
     border: 1px solid var(--accent-color);
@@ -225,10 +230,11 @@ main > section:not(.hero-section) {
     line-height: 1;
 }
 
+.project-content .insight-list h4,
 .project-content .challenge-list h4 {
     color: var(--accent-soft-color);
     font-family: var(--font-primary);
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-size: var(--font-size-h4);
     line-height: 1;
 }
 

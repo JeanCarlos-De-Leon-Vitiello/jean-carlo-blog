@@ -49,30 +49,129 @@
         <section class="project-intro">
             <div>
                 <h2>De opdracht</h2>
-                <p></p>
+                <p>Tijdens het vak Browser Tech was het de opdracht om een toegankelijk en gebruiksvriendelijk formulier te maken volgens de principes van het webplatform. Het doel van de opdracht was om te leren hoe formulieren werken in HTML, CSS en JavaScript en hoe deze op een toegankelijke manier kunnen worden gebouwd voor verschillende gebruikers en apparaten.</p>
+
+                <p>Voor deze opdracht moest ik een formulier van de overheid voor de erfbelasting maken in de stijl van de NS. Het formulier bevat verschillende invoervelden, radiobuttons, checkboxes, validaties en interactieve onderdelen. Tijdens het project heb ik gewerkt met HTML voor de structuur, CSS voor de vormgeving en JavaScript voor de interactieve functionaliteiten.</p>
             </div>
         </section>
+
+        <span class="border"></span>
 
         <section class="project-content">
             <article>
                 <h2>Feedback</h2>
-                <p></p>
+                <p class="quote">Goed werk, mooie stappen gezet. De detaillering moet echt beter. Maar proces en aanwezigheid daarentegen was helemaal goed. Als er meer tijd was geweest had het echt heel volledig kunnen zijn.</p>
             </article>
 
             <article>
                 <h2>Nieuwe inzichten</h2>
-                <p></p>
+                <ul class="insight-list">
+                    <li>
+                        <h3>Werken volgens de Rule of Least Power</h3>
+                        <p>Tijdens dit project heb ik geleerd wat de Rule of Least Power betekent. Dit principe houdt in dat je altijd de minst krachtige technologie gebruikt die een probleem kan oplossen.</p>
+
+                        <p>Bij het bouwen van mijn formulier ben ik eerst begonnen met oplossingen in HTML. Voor de validatie gebruikte ik bijvoorbeeld required, pattern, min en max voordat ik naar JavaScript keek.</p>
+
+                        <pre class="code-example"><code>&lt;input
+    type="text"
+    required
+    pattern="[A-Za-z]+"&gt;</code></pre>
+
+                        <p>Pas toen ik functionaliteiten wilde maken zoals het toevoegen van meerdere verkrijgers of uitgebreidere validatie, bleek JavaScript noodzakelijk. Hierdoor begrijp ik beter wanneer HTML voldoende is en wanneer JavaScript echt nodig is.</p>
+                    </li>
+
+                    <li>
+                        <h3>Progressive Disclosure maken met CSS</h3>
+                        <p>Tijdens dit project heb ik geleerd hoe ik met CSS bepaalde onderdelen van een formulier kan tonen of verbergen op basis van keuzes van de gebruiker. Dit wordt ook wel progressive disclosure genoemd.</p>
+
+                        <pre class="code-example"><code>input[value="ja"]:checked ~ .extra-fields {
+    display: block;
+}</code></pre>
+
+                        <p>In het begin vond ik dit lastig om te begrijpen, maar door te oefenen met selectors en :has() ben ik beter gaan begrijpen hoe elementen op elkaar kunnen reageren zonder JavaScript.</p>
+                    </li>
+
+                    <li>
+                        <h3>Formuliervalidatie met HTML en CSS</h3>
+                        <p>Tijdens het project heb ik geleerd dat HTML al veel mogelijkheden heeft om formulieren te valideren zonder JavaScript.</p>
+
+                        <pre class="code-example"><code>&lt;input
+    type="text"
+    required
+    pattern="[A-Za-z]+"&gt;</code></pre>
+
+                        <p>Met required, pattern, min en max kon ik veel controles uitvoeren. Hierdoor heb ik geleerd dat eenvoudige validatie vaak al mogelijk is met HTML.</p>
+                    </li>
+
+                    <li>
+                        <h3>Toegankelijke foutmeldingen met aria-describedby</h3>
+                        <p>Ik heb geleerd dat foutmeldingen beter buiten een label geplaatst kunnen worden en gekoppeld moeten worden aan een input met aria-describedby.</p>
+
+                        <pre class="code-example"><code>&lt;label for="naam"&gt;Naam&lt;/label&gt;
+&lt;input
+    id="naam"
+    aria-describedby="naam-error"&gt;
+
+&lt;p id="naam-error"&gt;
+    Vul een geldige naam in.
+&lt;/p&gt;</code></pre>
+
+                        <p>Hierdoor kunnen screenreaders beter begrijpen welke foutmelding bij welk invoerveld hoort. Dit heeft mij meer inzicht gegeven in toegankelijkheid binnen formulieren.</p>
+                    </li>
+
+                    <li>
+                        <h3>Werken met het template element en cloneNode()</h3>
+                        <p>Voor de tweede pattern moest een gebruiker meerdere verkrijgers kunnen toevoegen. Hiervoor heb ik voor het eerst gewerkt met het &lt;template&gt; element en cloneNode().</p>
+
+                        <pre class="code-example"><code>const clone = template.content.cloneNode(true);
+container.appendChild(clone);</code></pre>
+
+                        <p>Hierdoor heb ik geleerd hoe je met JavaScript dynamisch nieuwe onderdelen aan een formulier kunt toevoegen zonder dezelfde HTML meerdere keren te schrijven.</p>
+                    </li>
+
+                    <li>
+                        <h3>Unieke attributen genereren voor dynamische formulieren</h3>
+                        <p>Toen ik formulieren begon te clonen, ontdekte ik dat meerdere elementen dezelfde id kregen. Hierdoor werkten labels niet meer goed.</p>
+
+                        <pre class="code-example"><code>input.id = `naam-${index}`;
+label.htmlFor = `naam-${index}`;</code></pre>
+
+                        <p>Ik heb geleerd dat elke id uniek moet zijn binnen een pagina en dat dit extra belangrijk is wanneer je onderdelen dynamisch toevoegt met JavaScript.</p>
+                    </li>
+
+                    <li>
+                        <h3>Grenzen van HTML en CSS bij validatie</h3>
+                        <p>Een belangrijk inzicht was dat HTML en CSS veel kunnen op het gebied van validatie, maar niet alles.</p>
+
+                        <pre class="code-example"><code>&lt;input
+    type="date"
+    min="2025-01-01"
+    max="2025-12-31"&gt;</code></pre>
+
+                        <p>Ik kon bijvoorbeeld eenvoudige controles uitvoeren met required, pattern, min en max. Voor ingewikkeldere controles, zoals de 11-proef van een BSN of het berekenen van datums, bleek JavaScript noodzakelijk. Hierdoor begrijp ik nu beter wanneer HTML en CSS voldoende zijn en wanneer JavaScript nodig is.</p>
+                    </li>
+                </ul>
             </article>
 
             <article>
                 <h2>Reflectie</h2>
-                <p></p>
+                <p>Tijdens Browser Tech heb ik veel geleerd over het bouwen van toegankelijke en gebruiksvriendelijke formulieren. Aan het begin van het project dacht ik dat een formulier vooral bestond uit een aantal invoervelden, maar tijdens deze opdracht ontdekte ik hoeveel er eigenlijk komt kijken bij structuur, validatie, toegankelijkheid en gebruiksvriendelijkheid.</p>
+
+                <p>Wat ik het lastigst vond, was het werken met grote formulieren waarin veel dezelfde elementen terugkomen. Door het gebruik van veel inputs, labels, fieldsets en attributen verloor ik soms het overzicht. Ook vond ik het maken van de progressive disclosure in het begin moeilijk. Ik wist niet goed hoe ik bepaalde onderdelen van het formulier kon tonen of verbergen op basis van een keuze van de gebruiker. Door vragen te stellen en documentatie te lezen is het uiteindelijk toch gelukt.</p>
+
+                <p>Wat goed ging, was het toepassen van validatie en toegankelijkheid. Ik heb geleerd hoe ik met HTML al veel validatie kan uitvoeren door gebruik te maken van required, pattern, min en max. Daarnaast heb ik foutmeldingen gekoppeld met aria-describedby, zodat screenreaders beter begrijpen welke foutmelding bij welk invoerveld hoort. Hierdoor ben ik mij meer bewust geworden van het belang van toegankelijkheid.</p>
+
+                <p>Ook ben ik tevreden met de tweede pattern waarin gebruikers extra verkrijgers kunnen toevoegen en verwijderen. Hiervoor heb ik voor het eerst gewerkt met het &lt;template&gt; element, cloneNode() en het uniek maken van attributen met JavaScript. Dit was nieuw voor mij en heeft mij meer inzicht gegeven in het dynamisch aanpassen van formulieren.</p>
+
+                <p>Een belangrijk leerpunt voor mij was dat ik soms te veel tijd besteedde aan styling, terwijl de belangrijkste functionaliteiten nog niet af waren. Door de feedback van medestudenten ben ik mij hiervan bewust geworden. Hierdoor heb ik geleerd om eerst de functionaliteit werkend te krijgen en daarna pas extra aandacht te besteden aan de vormgeving.</p>
+
+                <p>Wat ik zeker meeneem naar toekomstige projecten is de Rule of Least Power. Ik heb geleerd om eerst te kijken of een probleem opgelost kan worden met HTML, daarna met CSS en pas als laatste met JavaScript. Daarnaast neem ik mijn kennis over toegankelijkheid, validatie en dynamische formulieren mee. Door deze opdracht begrijp ik beter hoe formulieren werken en hoe belangrijk het is om ze gebruiksvriendelijk en toegankelijk te maken voor alle gebruikers.</p>
             </article>
 
             <article class="eindresultaat">
                 <h2>Eindresultaat</h2>
-                <a href="">Eindresultaat</a>
-                <a href="">GitHub Repository</a>
+                <a href="https://jeancarlos-de-leon-vitiello.github.io/Browser-Tech/">Eindresultaat</a>
+                <a href="https://jeancarlos-de-leon-vitiello.github.io/Browser-Tech/">GitHub Repository</a>
             </article>
         </section>
     </main>

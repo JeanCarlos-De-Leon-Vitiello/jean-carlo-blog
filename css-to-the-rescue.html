@@ -49,30 +49,154 @@
         <section class="project-intro">
             <div>
                 <h2>De opdracht</h2>
-                <p></p>
+                <p>Tijdens de cursus CSS to the Rescue was het de opdracht om vier weken lang te experimenteren met CSS-technieken die nieuw voor ons waren. Het doel was om de mogelijkheden van moderne CSS verder te onderzoeken en een innovatieve, experimentele en leuke interactieve ervaring te ontwikkelen. Hierbij mochten alleen HTML en CSS worden gebruikt. Het gebruik van JavaScript was niet toegestaan.</p>
+
+                <p>Voor deze opdracht heb ik gekozen voor de categorie Control Panel. Mijn idee was om een interactieve 3D-slotmachine te maken die volledig werkt met HTML en CSS. Tijdens het project heb ik onderzoek gedaan naar verschillende CSS-technieken, zoals 3D-transforms, animaties, custom properties, @property, :has(), style queries, CSS anchors en de experimentele random() functie van Safari.</p>
             </div>
         </section>
 
+        <span class="border"></span>
+
         <section class="project-content">
             <article>
-                <h2>Feedback</h2>
-                <p></p>
-            </article>
-
-            <article>
                 <h2>Nieuwe inzichten</h2>
-                <p></p>
+                <ul class="insight-list">
+                    <li>
+                        <h3>Werken met de experimentele random() functie in CSS</h3>
+                        <p>Tijdens dit project heb ik kennisgemaakt met de experimentele random() functie van Safari. Met deze functie kon ik een willekeurige uitkomst genereren voor de draaiende wielen van mijn slotmachine.</p>
+
+                        <pre class="code-example"><code>@keyframes spin {
+    from {
+        transform: rotateX(0deg);
+    }
+    to {
+        transform: rotateX(
+            calc(
+                random(8turn, 14turn, 1turn) +
+                random(0deg, 270deg, 90deg)
+            )
+        );
+    }
+}</code></pre>
+
+                        <p>Hierdoor heb ik geleerd dat CSS steeds meer mogelijkheden krijgt die vroeger alleen met JavaScript mogelijk waren. Tegelijkertijd ontdekte ik dat de uitkomst van random() moeilijk opnieuw gebruikt kan worden voor logica zoals een winconditie. Hierdoor heb ik ook de beperkingen van deze nieuwe feature leren kennen.</p>
+                    </li>
+
+                    <li>
+                        <h3>Werken met geneste 3D-objecten</h3>
+                        <p>Tijdens het maken van de slotmachine heb ik geleerd hoe handig het is om 3D-objecten in elkaar te nesten. De hendel bestond uit meerdere onderdelen die samen een geheel vormden.</p>
+
+                        <div class="css-handle-demo" aria-label="Demo van een geneste 3D-hendel">
+                            <div class="handle">
+                                <div class="bar"></div>
+                                <div class="knob"></div>
+                                <div class="mechanism"></div>
+                            </div>
+                        </div>
+
+                        <pre class="code-example"><code>&lt;div class="handle"&gt;
+    &lt;div class="bar"&gt;&lt;/div&gt;
+    &lt;div class="knob"&gt;&lt;/div&gt;
+    &lt;div class="mechanism"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                        <p>Door alleen het parent-element te animeren, draaiden alle onderdelen automatisch mee.</p>
+
+                        <pre class="code-example"><code>.handle {
+    animation: pullHandle 1s ease-in-out;
+}</code></pre>
+
+                        <p>Hierdoor heb ik geleerd dat transforms worden doorgegeven aan geneste elementen. Dit maakte mijn code overzichtelijker en zorgde ervoor dat ik niet elk onderdeel apart hoefde te animeren.</p>
+                    </li>
+
+                    <li>
+                        <h3>Werken met CSS variabelen voor 3D-objecten</h3>
+                        <p>Bij het bouwen van de kast en de wielen van de slotmachine heb ik geleerd hoe ik CSS-variabelen kan gebruiken voor de breedte, hoogte en diepte van een 3D-object.</p>
+
+                        <div class="css-cube-demo" aria-label="Demo van een 3D-object met CSS variabelen">
+                            <div class="cube">
+                                <span class="front">front</span>
+                                <span class="back">back</span>
+                                <span class="left">left</span>
+                                <span class="right">right</span>
+                                <span class="top">top</span>
+                                <span class="bottom">bottom</span>
+                            </div>
+                        </div>
+
+                        <pre class="code-example"><code>--w: min(90vw, 800px);
+--h: calc(var(--w) * .6);
+--d: calc(var(--w) * .6);</code></pre>
+
+                        <p>Door deze variabelen te gebruiken kon ik alle zijdes van een object eenvoudig aanpassen. Hierdoor begreep ik beter hoe een 3D-object is opgebouwd en werd het makkelijker om verschillende vormen te maken.</p>
+                    </li>
+
+                    <li>
+                        <h3>Werken met :has()</h3>
+                        <p>Tijdens het project heb ik geleerd hoe ik de :has() selector kan gebruiken om elementen op elkaar te laten reageren zonder JavaScript.</p>
+
+                        <div class="css-has-demo" aria-label="Demo van de CSS :has selector">
+                            <input type="checkbox" id="has-demo-toggle">
+                            <label for="has-demo-toggle">Start machine</label>
+                            <div class="machine-preview">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+
+                        <pre class="code-example"><code>.machine:has(input:checked) {
+    animation-play-state: running;
+}</code></pre>
+
+                        <p>Hierdoor ontdekte ik dat CSS niet alleen gebruikt kan worden voor styling, maar ook voor interactieve functionaliteiten. Met :has() kun je bepaalde logica verwerken zonder extra code te schrijven.</p>
+                    </li>
+
+                    <li>
+                        <h3>Werken met Style Queries</h3>
+                        <p>Tijdens het maken van verschillende thema's voor mijn slotmachine heb ik ge&euml;xperimenteerd met style queries.</p>
+
+                        <div class="style-query-demo" aria-label="Demo van style queries met een thema">
+                            <input type="checkbox" id="style-query-toggle">
+                            <label for="style-query-toggle">Dark theme</label>
+                            <div class="style-query-machine">
+                                <span>CSS</span>
+                            </div>
+                        </div>
+
+                        <pre class="code-example"><code>@container style(--theme: dark) {
+    .machine {
+        background: black;
+    }
+}</code></pre>
+
+                        <p>Hierdoor heb ik geleerd dat CSS niet alleen kan reageren op schermgroottes, maar ook op de waarde van custom properties. Dit gaf mij meer inzicht in moderne CSS-technieken.</p>
+                    </li>
+
+                    <li>
+                        <h3>De grenzen van CSS ontdekken</h3>
+                        <p>Een belangrijk inzicht tijdens dit project was dat CSS veel krachtiger is dan ik vooraf dacht, maar ook duidelijke grenzen heeft. Ik heb geprobeerd om een volledige winconditie te maken met random(), element-shared en style queries. Hoewel dit uiteindelijk niet lukte, heb ik hierdoor geleerd dat CSS heel geschikt is voor styling, animaties en interactie, maar minder geschikt is voor complexe programmeerlogica. Dit inzicht helpt mij om in toekomstige projecten beter te bepalen wanneer CSS voldoende is en wanneer JavaScript nodig is.</p>
+                    </li>
+                </ul>
             </article>
 
             <article>
                 <h2>Reflectie</h2>
-                <p></p>
+                <p>Tijdens CSS to the Rescue heb ik veel geleerd over de mogelijkheden van moderne CSS. Aan het begin van het project dacht ik dat CSS vooral bedoeld was voor styling, maar tijdens deze opdracht ontdekte ik dat je er ook complexe animaties, 3D-objecten en interactieve onderdelen mee kunt maken.</p>
+
+                <p>Wat ik het lastigst vond, was het maken van een werkende winconditie voor mijn slotmachine. Ik heb hiervoor ge&euml;xperimenteerd met de Safari-only random() functie, style queries en andere nieuwe CSS-features. Hoewel het uiteindelijk niet lukte om een volledige winconditie te maken zonder JavaScript, heb ik hierdoor veel geleerd over de grenzen van CSS en wat wel en niet mogelijk is.</p>
+
+                <p>Wat goed ging, was het bouwen van de 3D-slotmachine. Vooral het maken van de wielen, de kast en de hendel vond ik interessant. Ik leerde hoe ik 3D-objecten kon opbouwen uit verschillende onderdelen en hoe ik deze kon nesten. Hierdoor hoefde ik uiteindelijk maar een onderdeel te animeren om de hele hendel te laten bewegen. Ook ben ik tevreden met de verschillende animaties, thema's en interactieve elementen die ik heb toegevoegd.</p>
+
+                <p>Een belangrijk inzicht dat ik meeneem naar toekomstige projecten is dat experimenteren minstens zo belangrijk is als het eindresultaat. Veel van mijn idee&euml;n werkten niet direct, maar door te blijven testen en onderzoeken heb ik veel nieuwe CSS-technieken geleerd. Daarnaast neem ik mijn kennis over 3D-transforms, custom properties, :has(), style queries en animaties mee naar toekomstige projecten.</p>
+
+                <p>Terugkijkend ben ik tevreden met mijn eindresultaat. Niet alles werkte zoals ik vooraf had bedacht, maar juist daardoor heb ik veel geleerd over moderne CSS en de mogelijkheden en beperkingen ervan.</p>
             </article>
 
             <article class="eindresultaat">
                 <h2>Eindresultaat</h2>
-                <a href="">Eindresultaat</a>
-                <a href="">GitHub Repository</a>
+                <a href="https://jeancarlos-de-leon-vitiello.github.io/CSS_CSS-To-The-rescue-eindopdracht/?stop1=stop1&amp;stop2=stop2&amp;stop3=stop3&amp;stop=stop">Eindresultaat</a>
+                <a href="https://github.com/JeanCarlos-De-Leon-Vitiello/CSS_CSS-To-The-rescue-eindopdracht">GitHub Repository</a>
             </article>
         </section>
     </main>

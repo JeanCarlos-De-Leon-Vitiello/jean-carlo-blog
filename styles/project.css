@@ -43,6 +43,15 @@ main > section:not(.hero-section) {
     line-height: 1.7;
 }
 
+.project-content .quote {
+    padding-left: 1rem;
+    border-left: 4px solid var(--accent-color);
+    color: var(--accent-soft-color);
+    font-family: var(--font-primary);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.1;
+}
+
 .project-intro > p,
 .project-intro > div:first-child {
     max-width: 48rem;
@@ -237,6 +246,246 @@ main > section:not(.hero-section) {
     font-family: monospace;
     font-size: 0.9rem;
     line-height: 1.5;
+}
+
+.css-handle-demo,
+.css-cube-demo,
+.css-has-demo,
+.style-query-demo {
+    min-height: 13rem;
+    display: grid;
+    place-items: center;
+    padding: 1.5rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: var(--primairy-color);
+    overflow: hidden;
+}
+
+.css-handle-demo {
+    perspective: 600px;
+}
+
+.css-handle-demo .handle {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    transform-style: preserve-3d;
+    transform-origin: bottom center;
+    animation: pullHandle 2.5s ease-in-out infinite;
+}
+
+.css-handle-demo .bar,
+.css-handle-demo .knob,
+.css-handle-demo .mechanism {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.css-handle-demo .bar {
+    bottom: 2.5rem;
+    width: 0.8rem;
+    height: 5rem;
+    border-radius: 999px;
+    background-color: #f5d372;
+}
+
+.css-handle-demo .knob {
+    top: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #e85d5d;
+}
+
+.css-handle-demo .mechanism {
+    bottom: 1.25rem;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    background-color: #9fdef8;
+}
+
+@keyframes pullHandle {
+    0%,
+    100% {
+        transform: rotateX(0deg) rotateZ(0deg);
+    }
+
+    45%,
+    60% {
+        transform: rotateX(45deg) rotateZ(10deg);
+    }
+}
+
+.css-cube-demo {
+    perspective: 700px;
+}
+
+.css-cube-demo .cube {
+    --w: 7rem;
+    --h: calc(var(--w) * 0.75);
+    --d: calc(var(--w) * 0.75);
+    position: relative;
+    width: var(--w);
+    height: var(--h);
+    transform-style: preserve-3d;
+    transform: rotateX(-18deg) rotateY(35deg);
+    animation: cubeTurn 8s linear infinite;
+}
+
+.css-cube-demo .cube span {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--accent-color);
+    background-color: color-mix(in srgb, var(--accent-color) 35%, transparent);
+    color: var(--secondary-color);
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+}
+
+.css-cube-demo .front {
+    transform: translateZ(calc(var(--d) / 2));
+}
+
+.css-cube-demo .back {
+    transform: rotateY(180deg) translateZ(calc(var(--d) / 2));
+}
+
+.css-cube-demo .left {
+    width: var(--d);
+    transform: rotateY(-90deg) translateZ(calc(var(--d) / 2));
+    transform-origin: left center;
+}
+
+.css-cube-demo .right {
+    width: var(--d);
+    transform: rotateY(90deg) translateZ(calc(var(--w) - var(--d) / 2));
+    transform-origin: left center;
+}
+
+.css-cube-demo .top,
+.css-cube-demo .bottom {
+    height: var(--d);
+}
+
+.css-cube-demo .top {
+    transform: rotateX(90deg) translateZ(calc(var(--d) / 2));
+    transform-origin: center top;
+}
+
+.css-cube-demo .bottom {
+    transform: rotateX(-90deg) translateZ(calc(var(--h) - var(--d) / 2));
+    transform-origin: center top;
+}
+
+@keyframes cubeTurn {
+    to {
+        transform: rotateX(-18deg) rotateY(395deg);
+    }
+}
+
+.css-has-demo,
+.style-query-demo {
+    align-content: center;
+    gap: 1rem;
+}
+
+.css-has-demo input,
+.style-query-demo input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.css-has-demo label,
+.style-query-demo label {
+    display: inline-flex;
+    justify-content: center;
+    min-width: 8rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    color: var(--accent-soft-color);
+    font-family: var(--font-primary);
+    cursor: pointer;
+}
+
+.css-has-demo input:focus-visible + label,
+.style-query-demo input:focus-visible + label {
+    outline: 2px solid var(--accent-soft-color);
+    outline-offset: 3px;
+}
+
+.css-has-demo .machine-preview {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+}
+
+.css-has-demo .machine-preview span {
+    width: 2.5rem;
+    height: 4rem;
+    border-radius: 0.4rem;
+    background: repeating-linear-gradient(
+        to bottom,
+        #9fdef8 0 1rem,
+        #f5d372 1rem 2rem,
+        #e85d5d 2rem 3rem
+    );
+    animation: reelSpin 0.45s linear infinite;
+    animation-play-state: paused;
+}
+
+.css-has-demo:has(input:checked) .machine-preview span {
+    animation-play-state: running;
+}
+
+@keyframes reelSpin {
+    to {
+        background-position-y: 3rem;
+    }
+}
+
+.style-query-demo {
+    --theme: light;
+    container-name: slot-theme;
+}
+
+.style-query-demo:has(input:checked) {
+    --theme: dark;
+}
+
+.style-query-machine {
+    display: grid;
+    place-items: center;
+    width: 8rem;
+    height: 5rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    background-color: #f5d372;
+}
+
+.style-query-machine span {
+    color: #111;
+    font-family: var(--font-primary);
+    font-size: 2rem;
+}
+
+@container style(--theme: dark) {
+    .style-query-machine {
+        background-color: #111;
+    }
+
+    .style-query-machine span {
+        color: #f5d372;
+    }
 }
 
 .project-content .eindresultaat {
